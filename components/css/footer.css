@@ -1,0 +1,61 @@
+
+/* FOOTER */
+footer{
+  padding:40px max(48px, calc((100vw - var(--max-w)) / 2)) 28px;
+  border-top:1px solid var(--border);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  margin-bottom:28px;
+  align-items:start;
+}
+.footer-brand{max-width:300px}
+.footer-logo{
+  font-family:'Outfit',sans-serif;
+  font-size:20px;font-weight:800;
+  color:var(--text);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.footer-desc{font-size:13px;color:var(--text3);line-height:1.6;margin-bottom:14px}
+.footer-newsletter{display:flex;gap:8px}
+.footer-input{
+  flex:1;background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:8px;padding:10px 14px;
+  color:var(--text);font-family:'DM Sans',sans-serif;
+  font-size:13px;outline:none;
+}
+.footer-input::placeholder{color:var(--text3)}
+.footer-input:focus{border-color:var(--sky)}
+.footer-sub-btn{
+  background:var(--sky);border:none;
+  color:#0A1A2C;font-family:'DM Sans',sans-serif;
+  font-size:13px;font-weight:600;
+  padding:10px 16px;border-radius:8px;cursor:pointer;
+  white-space:nowrap;transition:background .2s;
+}
+.footer-sub-btn:hover{background:var(--sky2)}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:14px;color:var(--text3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--sky)}
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding-top:20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-copy{font-size:13px;color:var(--text3)}
+.footer-link{
+  font-size:13px;color:var(--text3);text-decoration:none;
+  transition:color .4s var(--silk);
+}
+.footer-link:hover{color:var(--sky)}
+.footer-socials{display:flex;gap:8px}
+.social-btn{
+  width:34px;height:34px;border-radius:8px;
+  background:var(--bg2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:border-color .2s;
+}

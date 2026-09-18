@@ -1,0 +1,702 @@
+/* =======/* =========================================================
+   PREMIUM SAAS — SYSTEM MODULES
+========================================================= */
+
+.table-content-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    /* Responsive horizontal spacing */
+    padding: clamp(40px, 6vw, 80px)
+             clamp(14px, 3vw, 32px)
+             clamp(60px, 8vw, 100px);
+
+    box-sizing: border-box;
+
+    /* Avoid percentage-based vertical spacing */
+    margin-top: 3%;
+  
+}
+
+
+@media(max-width:767px){
+  .table-content-container{
+    margin-top: 23% !important;
+  }
+}
+
+
+
+@media(max-width:960px){
+  .table-content-container{
+    margin-top: 10%;
+  }
+}
+
+
+.modules-panel {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.modules-header {
+    position: relative;
+    margin-bottom: clamp(20px, 3vw, 30px);
+    padding-left: 2px;
+}
+
+.modules-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+    color: #55c7ff;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.modules-eyebrow::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 7px;
+
+    border-radius: 50%;
+
+    background: #36d399;
+
+    box-shadow:
+        0 0 0 4px rgba(54, 211, 153, .08),
+        0 0 14px rgba(54, 211, 153, .55);
+}
+
+.modules-header h1 {
+    margin: 0;
+
+    color: var(--text, #fff);
+
+    font-family: 'Outfit', sans-serif;
+
+    /* Automatically scales between devices */
+    font-size: clamp(28px, 4vw, 46px);
+
+    line-height: 1.05;
+    font-weight: 700;
+
+    letter-spacing: -.035em;
+}
+
+.modules-header p {
+    width: 100%;
+    max-width: 670px;
+
+    margin: 13px 0 0;
+
+    color: var(--text3, #8995a7);
+
+    font-size: clamp(13px, 1.5vw, 14px);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   MODULE LIST
+========================================================= */
+
+.modules-list {
+    display: grid;
+
+    /*
+       Two columns on larger screens.
+       Automatically becomes one column when
+       the available space becomes too narrow.
+    */
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: clamp(9px, 1.4vw, 14px);
+}
+
+
+/* =========================================================
+   MODULE ITEM
+========================================================= */
+
+.module-item {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 92px;
+
+    display: flex;
+    align-items: center;
+
+    gap: clamp(10px, 1.5vw, 15px);
+
+    padding:
+        clamp(12px, 1.7vw, 17px)
+        clamp(12px, 1.7vw, 18px);
+
+    box-sizing: border-box;
+
+    color: inherit;
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.018)
+        );
+
+    border: 1px solid rgba(255,255,255,.075);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    transition:
+        transform .25s cubic-bezier(.2,.8,.2,1),
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   TOP HIGHLIGHT
+========================================================= */
+
+.module-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 18px;
+    right: 18px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(91,198,255,.35),
+            transparent
+        );
+
+    opacity: .35;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.module-item::after {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    top: -90px;
+    right: -80px;
+
+    background: rgba(0,170,255,.08);
+
+    filter: blur(35px);
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    transition: opacity .3s ease;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .module-item:hover {
+        transform: translateY(-3px);
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(0,180,255,.075),
+                rgba(255,255,255,.025)
+            );
+
+        border-color: rgba(74,158,232,.32);
+
+        box-shadow:
+            0 14px 35px rgba(0,0,0,.22),
+            0 0 0 1px rgba(74,158,232,.035);
+    }
+
+    .module-item:hover::after {
+        opacity: 1;
+    }
+
+    .module-item:hover .module-icon {
+        color: #fff;
+
+        background:
+            linear-gradient(
+                135deg,
+                #00bfff,
+                #2477ff
+            );
+
+        transform: scale(1.06);
+
+        box-shadow:
+            0 6px 18px rgba(0,160,255,.25);
+    }
+
+    .module-item:hover .module-arrow {
+        color: #62cfff;
+
+        background: rgba(0,180,255,.08);
+
+        transform: translateX(4px);
+    }
+}
+
+
+/* =========================================================
+   MODULE ICON
+========================================================= */
+
+.module-icon {
+    position: relative;
+    z-index: 2;
+
+    width: clamp(40px, 4vw, 46px);
+    height: clamp(40px, 4vw, 46px);
+
+    flex: 0 0 clamp(40px, 4vw, 46px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #5bc9ff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,190,255,.13),
+            rgba(30,90,180,.08)
+        );
+
+    border: 1px solid rgba(74,158,232,.16);
+
+    border-radius: 11px;
+
+    font-size: clamp(13px, 1.5vw, 15px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   MODULE TEXT
+========================================================= */
+
+.module-info {
+    position: relative;
+    z-index: 2;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.module-info h2 {
+    margin: 0 0 5px;
+
+    color: var(--text, #fff);
+
+    font-family: 'Outfit', sans-serif;
+
+    font-size: clamp(13px, 1.5vw, 15px);
+
+    line-height: 1.25;
+    font-weight: 600;
+
+    letter-spacing: -.01em;
+
+    /*
+       Prevent long titles from breaking
+       the card layout.
+    */
+    overflow-wrap: anywhere;
+}
+
+.module-info p {
+    margin: 0;
+
+    width: 100%;
+    max-width: 480px;
+
+    color: var(--text3, #8995a7);
+
+    font-size: clamp(11px, 1.3vw, 12px);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.module-arrow {
+    position: relative;
+    z-index: 2;
+
+    width: 32px;
+    height: 32px;
+
+    flex: 0 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #687586;
+
+    border-radius: 8px;
+
+    transition:
+        color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+
+/* =========================================================
+   MORE MODULES
+========================================================= */
+
+.module-more {
+    border-style: dashed;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(255,255,255,.012)
+        );
+
+    opacity: .8;
+}
+
+.module-more:hover {
+    opacity: 1;
+
+    border-color: rgba(74,158,232,.35);
+}
+
+
+/* =========================================================
+   MODULE NUMBER / INDEX
+========================================================= */
+
+.module-item[data-number]::before {
+    content: attr(data-number);
+
+    position: absolute;
+
+    top: 9px;
+    right: 13px;
+
+    height: auto;
+
+    color: rgba(255,255,255,.18);
+
+    background: none;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: .08em;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .modules-list {
+        grid-template-columns: 1fr;
+    }
+
+    .modules-panel {
+        max-width: 760px;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLETS / LARGE PHONES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .table-content-container {
+        padding:
+            40px
+            14px
+            60px;
+    }
+
+    .modules-header {
+        margin-bottom: 20px;
+    }
+
+    .modules-eyebrow {
+        font-size: 9px;
+        letter-spacing: .15em;
+    }
+
+    .modules-header h1 {
+        font-size: 30px;
+    }
+
+    .modules-header p {
+        margin-top: 10px;
+
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .modules-list {
+        gap: 9px;
+    }
+
+    .module-item {
+        min-height: 78px;
+
+        padding: 12px;
+
+        gap: 12px;
+
+        border-radius: 12px;
+    }
+
+    .module-icon {
+        width: 40px;
+        height: 40px;
+
+        flex-basis: 40px;
+
+        border-radius: 9px;
+
+        font-size: 13px;
+    }
+
+    .module-info h2 {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .module-info p {
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    .module-arrow {
+        width: 28px;
+        height: 28px;
+
+        flex-basis: 28px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .table-content-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .modules-header h1 {
+        font-size: 28px;
+    }
+
+    .modules-header p {
+        font-size: 12.5px;
+    }
+
+    .module-item {
+        min-height: 74px;
+    }
+
+    .module-info h2 {
+        font-size: 13.5px;
+    }
+
+    .module-info p {
+        font-size: 10.8px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .table-content-container {
+        padding:
+            32px
+            10px
+            50px;
+    }
+
+    .modules-header h1 {
+        font-size: 26px;
+    }
+
+    .modules-eyebrow {
+        font-size: 8px;
+    }
+
+    .module-item {
+        min-height: 70px;
+
+        padding: 10px;
+
+        gap: 9px;
+    }
+
+    .module-icon {
+        width: 36px;
+        height: 36px;
+
+        flex-basis: 36px;
+
+        border-radius: 8px;
+
+        font-size: 12px;
+    }
+
+    .module-info h2 {
+        font-size: 12.5px;
+    }
+
+    .module-info p {
+        font-size: 10px;
+    }
+
+    /*
+       On extremely narrow screens,
+       remove the arrow so text has more room.
+    */
+    .module-arrow {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+
+    .module-item {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .module-item:active {
+        transform: scale(.985);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .module-item,
+    .module-icon,
+    .module-arrow,
+    .module-item::after {
+        transition: none;
+    }
+
+    .module-item:hover {
+        transform: none;
+    }
+
+    .module-item:hover .module-icon {
+        transform: none;
+    }
+
+    .module-item:hover .module-arrow {
+        transform: none;
+    }
+}
+
+
+.p-demo{
+  font-size: clamp(13px, 1.5vw, 14px);
+      color: var(--text3, #8995a7);
+      
+}
+
+
+.continuously-expanding{
+  font-size: clamp(14px, 4vw, 26px);
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
