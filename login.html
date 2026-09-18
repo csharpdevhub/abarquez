@@ -1,0 +1,256 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+     <title>Login — Israel Abarquez</title> 
+     <meta name="description" content="Secure login access."> 
+
+
+        <!-- Classic images/favicon -->
+ 
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+
+<!-- PNG images/favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png?v=2">
+
+<!-- Apple -->
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=2">
+<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png?v=2">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=2">
+
+
+     <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="/components/css/animated-nav-logo.css"> 
+    <link rel="stylesheet" href="/components/css/login.css">
+    <link rel="stylesheet" href="/components/css/go-back.css">
+      
+
+   </head> 
+   <body> 
+    
+    <div class="login-container">
+    <div class="logo">
+
+
+    <h1>
+        Israel Abarquez
+    </h1>
+
+    <p>
+        Secure Access Portal
+    </p>
+
+
+</div>
+
+                        <button type="button"
+                                onclick="goBack()"
+                                class="back-to-portfolio-demo"
+                                aria-label="Go back to previous page">
+                            ⏪ Back 
+                        </button>
+
+
+<div class="login-card">
+
+
+    
+    <div class="login-badge">
+        <span class="badge-dot"></span>
+        AUTHENTICATION REQUIRED
+    </div>
+
+    <h2>Welcome back.</h2>
+
+    <p class="login-description">
+        Select your account type and enter your credentials.
+    </p>
+
+
+    <div id="errorMessage" class="error-message">
+        Invalid username or password.
+    </div>
+
+    <form id="loginForm">
+
+        <div class="form-group">
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter admin username"
+                autocomplete="username"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            >
+        </div>
+
+
+        
+    <!-- Account Type Selection -->
+    <div class="account-options">
+        <button type="button" class="account-option active" id="adminOption">
+            👔 Admin
+        </button>
+
+        <button type="button" class="account-option" id="userOption">
+            👤 User
+        </button>
+    </div>
+
+  
+        <button
+            type="submit"
+            class="login-button">
+            Sign In →
+        </button>
+
+    </form>
+
+    <a href="/portfolio-demo.html" class="back-home">
+        ← Back to Demo
+    </a>
+
+    <div class="security-note">
+        <span>●</span>
+        Protected access
+    </div>
+
+</div>
+
+<div class="demo-credentials">
+
+    <div class="demo-credentials-header">
+        <span class="demo-badge">DEMO ACCESS</span>
+        <h3>Demo Credentials</h3>
+        <p>Use the credentials below to explore the platform.</p>
+    </div>
+
+    <div class="credential-grid">
+
+        <!-- Employer -->
+        <div class="credential-card">
+            <div class="credential-card-header">
+                <div class="credential-icon">
+                    <i class="fa-solid fa-building"></i>
+                </div>
+
+                <div>
+                       <h4>Admin</h4>
+                
+                </div>
+            </div>
+
+            <div class="credential-row">
+                <div class="credential-label">
+                    <span>Username</span>
+                    <strong>employer</strong>
+                </div>
+
+                <button
+                    type="button"
+                    class="copy-credential"
+                    data-copy="employer"
+                    aria-label="Copy employer username">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="credential-row">
+                <div class="credential-label">
+                    <span>Password</span>
+                    <strong>employer</strong>
+                </div>
+
+                <button
+                    type="button"
+                    class="copy-credential"
+                    data-copy="employer"
+                    aria-label="Copy employer password">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Admin -->
+        <div class="credential-card">
+            <div class="credential-card-header">
+                <div class="credential-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <h4>User</h4>
+                </div>
+            </div>
+
+            <div class="credential-row">
+                <div class="credential-label">
+                    <span>Username</span>
+                    <strong>guest</strong>
+                </div>
+
+                <button
+                    type="button"
+                    class="copy-credential"
+                    data-copy="employer"
+                    aria-label="Copy administrator username">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="credential-row">
+                <div class="credential-label">
+                    <span>Password</span>
+                    <strong>guest</strong>
+                </div>
+
+                <button
+                    type="button"
+                    class="copy-credential"
+                    data-copy="employer"
+                    aria-label="Copy administrator password">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="demo-security-note">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>These credentials are for demonstration purposes only.</span>
+    </div>
+
+</div>
+
+<script src="/components/js/login.js" defer></script>
+<script src="/components/js/go-back.js" defer></script>
+        
+
+</body> 
+</html>

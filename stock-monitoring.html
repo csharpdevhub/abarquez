@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stock Monitoring — Inventory Management System</title>
+
+<meta name="description"
+      content="Professional stock monitoring and inventory management dashboard for tracking inventory levels, stock movement, alerts, and warehouse status.">
+
+
+<!-- Classic images/favicon -->
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+
+<!-- PNG images/favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png?v=2">
+
+<!-- Apple -->
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=2">
+<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png?v=2">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=2">
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet" href="/components/css/animated-nav-logo.css">
+
+<link rel="stylesheet" href="/components/css/stock-monitoring.css">
+
+<link rel="stylesheet" href="/components/css/go-back.css">
+
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<nav>
+
+    <div class="nav-container">
+
+        <a href="/" class="logo">
+             <div class="info-logo">
+                <div class="info-core">
+                    <span>i</span>
+                </div>
+
+                <div class="info-orbit orbit-1"><b></b></div>
+                <div class="info-orbit orbit-2"><b></b></div>
+                <div class="info-orbit orbit-3"><b></b></div>
+
+                <i class="info-particle p1"></i>
+                <i class="info-particle p2"></i>
+                <i class="info-particle p3"></i>
+                <i class="info-particle p4"></i>
+                <i class="info-particle p5"></i>
+            </div>
+
+            <span class="stock-monitoring-nav-title">
+               Stock Monitoring Demo
+            </span>
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+            <a href="#inventory-movement">Inventory Movement</a>
+            <a href="#stock-level">Stock Level</a>
+            <a href="#warehouse-capacity">Warehouse Capacity</a>
+
+
+        </div>
+
+
+        <div class="nav-right">
+
+            <button class="notification">
+                🔔
+                <span class="notification-dot"></span>
+            </button>
+
+            <div class="profile">
+
+                <div class="avatar">
+                    PI
+                </div>
+
+                <span>Admin</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- HAMBURGER -->
+
+        <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<main class="container">
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<section class="page-header">
+
+    <div>
+
+                        <button type="button"
+                                onclick="goBack()"
+                                class="back-to-portfolio-demo"
+                                aria-label="Go back to previous page">
+                            ⏪ Back 
+                        </button>
+
+                    <br>
+
+        <div class="eyebrow">
+
+            <span class="live-dot"></span>
+
+            Inventory System
+
+        </div>
+
+        <h1>
+            Stock Monitoring
+        </h1>
+
+        <p class="page-description">
+
+            Monitor inventory levels, identify stock risks, and
+            track product availability across your business in
+            real time.
+
+        </p>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button class="btn"
+                onclick="refreshDashboard()">
+
+            ↻
+            Refresh
+
+        </button>
+
+        <button class="btn btn-primary"
+                onclick="showStockModal()">
+
+            + Add Stock
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STATISTICS
+========================================================= -->
+
+<section class="stats">
+
+
+    <div class="stat-card">
+
+        <div class="stat-top">
+
+            <div class="stat-icon">
+                ▦
+            </div>
+
+            <div class="stat-change">
+                +8.4%
+            </div>
+
+        </div>
+
+        <div class="stat-number">
+            12,486
+        </div>
+
+        <div class="stat-label">
+            Total Stock Units
+        </div>
+
+        <div class="stat-description">
+            Across all warehouses
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-top">
+
+            <div class="stat-icon"
+                 style="
+                 color:var(--green);
+                 background:rgba(61,204,142,.08);
+                 border-color:rgba(61,204,142,.15);
+                 ">
+                ✓
+            </div>
+
+            <div class="stat-change">
+                Healthy
+            </div>
+
+        </div>
+
+        <div class="stat-number">
+            9,842
+        </div>
+
+        <div class="stat-label">
+            Healthy Stock
+        </div>
+
+        <div class="progress">
+            <span style="width:79%"></span>
+        </div>
+
+        <div class="stat-description">
+            79% of total inventory
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-top">
+
+            <div class="stat-icon"
+                 style="
+                 color:var(--orange);
+                 background:rgba(240,160,48,.08);
+                 border-color:rgba(240,160,48,.15);
+                 ">
+                !
+            </div>
+
+            <div class="stat-change"
+                 style="
+                 color:var(--orange);
+                 background:rgba(240,160,48,.08);
+                 ">
+                Attention
+            </div>
+
+        </div>
+
+        <div class="stat-number">
+            1,824
+        </div>
+
+        <div class="stat-label">
+            Low Stock
+        </div>
+
+        <div class="progress">
+            <span style="
+                width:43%;
+                background:var(--orange);
+            "></span>
+        </div>
+
+        <div class="stat-description">
+            24 products need replenishment
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-top">
+
+            <div class="stat-icon"
+                 style="
+                 color:var(--red);
+                 background:rgba(232,90,90,.08);
+                 border-color:rgba(232,90,90,.15);
+                 ">
+                !
+            </div>
+
+            <div class="stat-change"
+                 style="
+                 color:var(--red);
+                 background:rgba(232,90,90,.08);
+                 ">
+                Critical
+            </div>
+
+        </div>
+
+        <div class="stat-number">
+            820
+        </div>
+
+        <div class="stat-label">
+            Critical Stock
+        </div>
+
+        <div class="stat-description">
+            8 products below minimum level
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     MAIN DASHBOARD
+========================================================= -->
+
+<section class="dashboard-grid">
+
+
+    <!-- INVENTORY MOVEMENT -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div id="inventory-movement">
+
+                <div class="card-title" >
+                    Inventory Movement
+                </div>
+
+                <div class="card-subtitle">
+                    Stock activity over the last 7 days
+                </div>
+
+            </div>
+
+            <select class="filter"
+                    onchange="changePeriod(this)">
+
+                <option>Last 7 days</option>
+                <option>Last 30 days</option>
+                <option>Last 90 days</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="chart-summary">
+
+                <div>
+
+                    <div class="chart-total">
+                        12,486
+                        <small>units</small>
+                    </div>
+
+                    <div class="chart-up">
+                        ▲ 6.2% compared with previous period
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart">
+
+                <div class="bar"
+                     style="--height:55%"
+                     title="Monday: 7,420 units">
+                </div>
+
+                <div class="bar"
+                     style="--height:68%"
+                     title="Tuesday: 8,130 units">
+                </div>
+
+                <div class="bar"
+                     style="--height:61%"
+                     title="Wednesday: 7,820 units">
+                </div>
+
+                <div class="bar"
+                     style="--height:76%"
+                     title="Thursday: 9,240 units">
+                </div>
+
+                <div class="bar"
+                     style="--height:71%"
+                     title="Friday: 8,760 units">
+                </div>
+
+                <div class="bar"
+                     style="--height:86%"
+                     title="Saturday: 10,320 units">
+                </div>
+
+                <div class="bar"
+                     style="
+                     --height:94%;
+                     background:linear-gradient(
+                       180deg,
+                       rgba(61,204,142,.9),
+                       rgba(61,204,142,.12)
+                     );
+                     border-color:var(--green);
+                     "
+                     title="Sunday: 12,486 units">
+                </div>
+
+            </div>
+
+
+            <div class="bar-labels">
+
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STOCK HEALTH -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <div class="card-title">
+                    Stock Health
+                </div>
+
+                <div class="card-subtitle">
+                    Current inventory condition
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="health-list">
+
+
+                <div class="health-item">
+
+                    <div class="health-icon"
+                         style="
+                         color:var(--green);
+                         background:rgba(61,204,142,.08);
+                         ">
+                        ✓
+                    </div>
+
+                    <div class="health-info">
+
+                        <strong>
+                            Healthy
+                        </strong>
+
+                        <span>
+                            Above minimum level
+                        </span>
+
+                    </div>
+
+                    <div class="health-percent"
+                         style="color:var(--green)">
+                        79%
+                    </div>
+
+                    <div class="health-progress">
+                        <span style="
+                            width:79%;
+                            background:var(--green);
+                        "></span>
+                    </div>
+
+                </div>
+
+
+                <div class="health-item">
+
+                    <div class="health-icon"
+                         style="
+                         color:var(--orange);
+                         background:rgba(240,160,48,.08);
+                         ">
+                        !
+                    </div>
+
+                    <div class="health-info">
+
+                        <strong>
+                            Low Stock
+                        </strong>
+
+                        <span>
+                            Replenishment recommended
+                        </span>
+
+                    </div>
+
+                    <div class="health-percent"
+                         style="color:var(--orange)">
+                        15%
+                    </div>
+
+                    <div class="health-progress">
+                        <span style="
+                            width:15%;
+                            background:var(--orange);
+                        "></span>
+                    </div>
+
+                </div>
+
+
+                <div class="health-item">
+
+                    <div class="health-icon"
+                         style="
+                         color:var(--red);
+                         background:rgba(232,90,90,.08);
+                         ">
+                        !
+                    </div>
+
+                    <div class="health-info">
+
+                        <strong>
+                            Critical
+                        </strong>
+
+                        <span>
+                            Immediate action required
+                        </span>
+
+                    </div>
+
+                    <div class="health-percent"
+                         style="color:var(--red)">
+                        6%
+                    </div>
+
+                    <div class="health-progress">
+                        <span style="
+                            width:6%;
+                            background:var(--red);
+                        "></span>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCT STOCK TABLE
+========================================================= -->
+
+<section class="card table-card">
+
+    <div class="card-header">
+
+        <div>
+
+            <div class="card-title" id="stock-level">
+                Product Stock Levels
+            </div>
+
+            <div class="card-subtitle">
+                Real-time inventory availability
+            </div>
+
+        </div>
+
+        <button class="btn">
+            View All Products →
+        </button>
+
+    </div>
+
+
+    <div class="table-toolbar">
+
+        <div class="search">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="Search product..."
+                onkeyup="searchProducts()">
+
+        </div>
+
+
+        <div class="filters">
+
+            <select class="filter"
+                    id="stockFilter"
+                    onchange="filterStock()">
+
+                <option value="all">
+                    All Status
+                </option>
+
+                <option value="healthy">
+                    Healthy
+                </option>
+
+                <option value="low">
+                    Low Stock
+                </option>
+
+                <option value="critical">
+                    Critical
+                </option>
+
+            </select>
+
+            <select class="filter">
+
+                <option>
+                    All Warehouses
+                </option>
+
+                <option>
+                    Main Warehouse
+                </option>
+
+                <option>
+                    Branch Warehouse
+                </option>
+
+                <option>
+                    Storage Facility
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table id="stockTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Product
+                    </th>
+
+                    <th>
+                        Category
+                    </th>
+
+                    <th>
+                        Warehouse
+                    </th>
+
+                    <th>
+                        Current Stock
+                    </th>
+
+                    <th>
+                        Minimum
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Last Updated
+                    </th>
+
+                    <th>
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+                <tr data-status="healthy">
+
+                    <td>
+
+                        <div class="product">
+
+                            <div class="product-icon"
+                                 style="
+                                 background:
+                                 linear-gradient(
+                                 135deg,#1676b9,#254fd5);
+                                 ">
+                                KB
+                            </div>
+
+                            <div>
+
+                                <div class="product-name">
+                                    Mechanical Keyboard
+                                </div>
+
+                                <div class="product-code">
+                                    SKU-10024
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        Computer Accessories
+                    </td>
+
+                    <td>
+                        Main Warehouse
+                    </td>
+
+                    <td>
+
+                        <div class="stock-number">
+                            486
+                        </div>
+
+                        <div class="stock-unit">
+                            units
+                        </div>
+
+                    </td>
+
+                    <td>
+                        100
+                    </td>
+
+                    <td>
+
+                        <span class="status status-good">
+
+                            <span class="status-dot"
+                                  style="background:var(--green)">
+                            </span>
+
+                            Healthy
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        2 min ago
+                    </td>
+
+                    <td>
+                        <button class="action-btn">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="healthy">
+
+                    <td>
+
+                        <div class="product">
+
+                            <div class="product-icon"
+                                 style="
+                                 background:
+                                 linear-gradient(
+                                 135deg,#704edb,#ad4edb);
+                                 ">
+                                MS
+                            </div>
+
+                            <div>
+
+                                <div class="product-name">
+                                    Wireless Mouse
+                                </div>
+
+                                <div class="product-code">
+                                    SKU-10031
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        Computer Accessories
+                    </td>
+
+                    <td>
+                        Main Warehouse
+                    </td>
+
+                    <td>
+
+                        <div class="stock-number">
+                            752
+                        </div>
+
+                        <div class="stock-unit">
+                            units
+                        </div>
+
+                    </td>
+
+                    <td>
+                        150
+                    </td>
+
+                    <td>
+
+                        <span class="status status-good">
+
+                            <span class="status-dot"
+                                  style="background:var(--green)">
+                            </span>
+
+                            Healthy
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        5 min ago
+                    </td>
+
+                    <td>
+                        <button class="action-btn">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="low">
+
+                    <td>
+
+                        <div class="product">
+
+                            <div class="product-icon"
+                                 style="
+                                 background:
+                                 linear-gradient(
+                                 135deg,#c57b18,#e54b25);
+                                 ">
+                                MN
+                            </div>
+
+                            <div>
+
+                                <div class="product-name">
+                                    24" Monitor
+                                </div>
+
+                                <div class="product-code">
+                                    SKU-10048
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        Displays
+                    </td>
+
+                    <td>
+                        Branch Warehouse
+                    </td>
+
+                    <td>
+
+                        <div class="stock-number">
+                            64
+                        </div>
+
+                        <div class="stock-unit">
+                            units
+                        </div>
+
+                    </td>
+
+                    <td>
+                        80
+                    </td>
+
+                    <td>
+
+                        <span class="status status-low">
+
+                            <span class="status-dot"
+                                  style="background:var(--orange)">
+                            </span>
+
+                            Low Stock
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        12 min ago
+                    </td>
+
+                    <td>
+                        <button class="action-btn">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="critical">
+
+                    <td>
+
+                        <div class="product">
+
+                            <div class="product-icon"
+                                 style="
+                                 background:
+                                 linear-gradient(
+                                 135deg,#c72e4e,#e8516e);
+                                 ">
+                                LP
+                            </div>
+
+                            <div>
+
+                                <div class="product-name">
+                                    Laser Printer
+                                </div>
+
+                                <div class="product-code">
+                                    SKU-10055
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        Office Equipment
+                    </td>
+
+                    <td>
+                        Main Warehouse
+                    </td>
+
+                    <td>
+
+                        <div class="stock-number"
+                             style="color:var(--red)">
+                            8
+                        </div>
+
+                        <div class="stock-unit">
+                            units
+                        </div>
+
+                    </td>
+
+                    <td>
+                        40
+                    </td>
+
+                    <td>
+
+                        <span class="status status-critical">
+
+                            <span class="status-dot"
+                                  style="background:var(--red)">
+                            </span>
+
+                            Critical
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        18 min ago
+                    </td>
+
+                    <td>
+                        <button class="action-btn">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="healthy">
+
+                    <td>
+
+                        <div class="product">
+
+                            <div class="product-icon"
+                                 style="
+                                 background:
+                                 linear-gradient(
+                                 135deg,#0d9b72,#1164c5);
+                                 ">
+                                SSD
+                            </div>
+
+                            <div>
+
+                                <div class="product-name">
+                                    1TB SSD
+                                </div>
+
+                                <div class="product-code">
+                                    SKU-10062
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        Storage
+                    </td>
+
+                    <td>
+                        Storage Facility
+                    </td>
+
+                    <td>
+
+                        <div class="stock-number">
+                            328
+                        </div>
+
+                        <div class="stock-unit">
+                            units
+                        </div>
+
+                    </td>
+
+                    <td>
+                        100
+                    </td>
+
+                    <td>
+
+                        <span class="status status-good">
+
+                            <span class="status-dot"
+                                  style="background:var(--green)">
+                            </span>
+
+                            Healthy
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        21 min ago
+                    </td>
+
+                    <td>
+                        <button class="action-btn">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="low">
+
+                    <td>
+
+                        <div class="product">
+
+                            <div class="product-icon"
+                                 style="
+                                 background:
+                                 linear-gradient(
+                                 135deg,#c76b24,#d99a20);
+                                 ">
+                                RJ
+                            </div>
+
+                            <div>
+
+                                <div class="product-name">
+                                    Cat6 Network Cable
+                                </div>
+
+                                <div class="product-code">
+                                    SKU-10077
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        Networking
+                    </td>
+
+                    <td>
+                        Branch Warehouse
+                    </td>
+
+                    <td>
+
+                        <div class="stock-number"
+                             style="color:var(--orange)">
+                            32
+                        </div>
+
+                        <div class="stock-unit">
+                            rolls
+                        </div>
+
+                    </td>
+
+                    <td>
+                        50
+                    </td>
+
+                    <td>
+
+                        <span class="status status-low">
+
+                            <span class="status-dot"
+                                  style="background:var(--orange)">
+                            </span>
+
+                            Low Stock
+
+                        </span>
+
+                    </td>
+
+                    <td>
+                        28 min ago
+                    </td>
+
+                    <td>
+                        <button class="action-btn">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ALERTS + WAREHOUSES
+========================================================= -->
+
+<section class="bottom-grid">
+
+
+    <!-- STOCK ALERTS -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <div class="card-title">
+                    Stock Alerts
+                </div>
+
+                <div class="card-subtitle">
+                    Items requiring attention
+                </div>
+
+            </div>
+
+            <span style="
+                font-size:10px;
+                color:var(--red);
+            ">
+                4 active alerts
+            </span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="alert-list">
+
+
+                <div class="alert">
+
+                    <div class="alert-icon"
+                         style="
+                         background:rgba(232,90,90,.09);
+                         color:var(--red);
+                         ">
+                        !
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Laser Printer
+                        </strong>
+
+                        <span>
+                            Stock has fallen below critical level
+                        </span>
+
+                    </div>
+
+                    <div class="alert-time">
+                        18m
+                    </div>
+
+                </div>
+
+
+                <div class="alert">
+
+                    <div class="alert-icon"
+                         style="
+                         background:rgba(240,160,48,.09);
+                         color:var(--orange);
+                         ">
+                        !
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            24" Monitor
+                        </strong>
+
+                        <span>
+                            Reorder recommended — 64 units remaining
+                        </span>
+
+                    </div>
+
+                    <div class="alert-time">
+                        12m
+                    </div>
+
+                </div>
+
+
+                <div class="alert">
+
+                    <div class="alert-icon"
+                         style="
+                         background:rgba(240,160,48,.09);
+                         color:var(--orange);
+                         ">
+                        !
+                    </div>
+
+                    <div class="alert-content">
+
+                        <strong>
+                            Cat6 Network Cable
+                        </strong>
+
+                        <span>
+                            Inventory approaching minimum level
+                        </span>
+
+                    </div>
+
+                    <div class="alert-time">
+                        28m
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- WAREHOUSE -->
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <div class="card-title" id="warehouse-capacity">
+                    Warehouse Capacity
+                </div>
+
+                <div class="card-subtitle">
+                    Inventory distribution
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="warehouse-list">
+
+
+                <div class="warehouse">
+
+                    <div class="warehouse-top">
+
+                        <div class="warehouse-name">
+                            Main Warehouse
+                        </div>
+
+                        <div class="warehouse-status">
+                            Operational
+                        </div>
+
+                    </div>
+
+                    <div class="warehouse-meta">
+
+                        <span>
+                            7,842 units
+                        </span>
+
+                        <span>
+                            72% capacity
+                        </span>
+
+                    </div>
+
+                    <div class="warehouse-bar">
+                        <span style="width:72%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="warehouse">
+
+                    <div class="warehouse-top">
+
+                        <div class="warehouse-name">
+                            Branch Warehouse
+                        </div>
+
+                        <div class="warehouse-status">
+                            Operational
+                        </div>
+
+                    </div>
+
+                    <div class="warehouse-meta">
+
+                        <span>
+                            2,916 units
+                        </span>
+
+                        <span>
+                            48% capacity
+                        </span>
+
+                    </div>
+
+                    <div class="warehouse-bar">
+                        <span style="width:48%"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="warehouse">
+
+                    <div class="warehouse-top">
+
+                        <div class="warehouse-name">
+                            Storage Facility
+                        </div>
+
+                        <div class="warehouse-status">
+                            Operational
+                        </div>
+
+                    </div>
+
+                    <div class="warehouse-meta">
+
+                        <span>
+                            1,728 units
+                        </span>
+
+                        <span>
+                            31% capacity
+                        </span>
+
+                    </div>
+
+                    <div class="warehouse-bar">
+                        <span style="width:31%"></span>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+</main>
+
+
+<script src="/components/js/stock-monitoring.js" defer></script>
+<script src="/components/js/go-back.js" defer></script>
+        
+
+</body>
+</html>

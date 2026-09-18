@@ -1,0 +1,3027 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Supplier Management System — Israel Dayrit Abarquez</title>
+<meta name="description" content="Supplier Management module developed with C#, .NET, Windows Forms and SQL Server. Manage suppliers, contacts, purchasing history, performance and supplier records from one centralized system.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"> <style>
+/* =========================================================
+ROOT
+========================================================= */
+
+:root {
+--bg: #070b10;
+--bg2: #0b1118;
+--bg3: #101820;
+--bg4: #141e28;
+
+--border: rgba(255,255,255,.07);
+--border2: rgba(255,255,255,.12);
+
+--text: #f1f6fb;
+--text2: #a9b5c2;
+--text3: #657383;
+
+--blue: #4a9ee8;
+--cyan: #00d9ff;
+--green: #3dcc8e;
+--purple: #8888f8;
+--orange: #f0a030;
+--red: #e85a5a;
+
+--max-w: 1180px;
+
+--shadow:
+    0 25px 80px rgba(0,0,0,.45);
+
+--glow:
+    0 0 40px rgba(74,158,232,.12);
+
+}
+
+/* =========================================================
+RESET
+========================================================= */
+
+{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+html {
+scroll-behavior: smooth;
+}
+
+body {
+background:
+radial-gradient(
+circle at 70% 10%,
+rgba(0,153,255,.08),
+transparent 30%
+),
+radial-gradient(
+circle at 20% 50%,
+rgba(0,229,255,.035),
+transparent 30%
+),
+var(--bg);
+
+color: var(--text);
+
+font-family:
+    'DM Sans',
+    sans-serif;
+
+line-height: 1.6;
+
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+button {
+font-family: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+outline: 2px solid var(--cyan);
+outline-offset: 3px;
+}
+
+/* =========================================================
+NAVIGATION
+========================================================= */
+
+nav {
+position: sticky;
+top: 0;
+z-index: 100;
+
+height: 76px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+padding:
+    0 max(28px, calc((100vw - var(--max-w)) / 2));
+
+background: rgba(7,11,16,.78);
+
+backdrop-filter: blur(18px);
+
+border-bottom: 1px solid var(--border);
+
+}
+
+.nav-logo {
+display: flex;
+align-items: center;
+gap: 12px;
+
+font-family: 'Outfit', sans-serif;
+font-weight: 700;
+font-size: 17px;
+
+}
+
+.logo-icon {
+width: 36px;
+height: 36px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 10px;
+
+color: white;
+
+background:
+    linear-gradient(
+        135deg,
+        #00d9ff,
+        #007cff
+    );
+
+box-shadow:
+    0 0 18px rgba(0,217,255,.25);
+
+}
+
+.nav-links {
+display: flex;
+gap: 28px;
+
+color: var(--text3);
+
+font-size: 13px;
+
+}
+
+.nav-links a {
+transition: .2s;
+}
+
+.nav-links a:hover {
+color: var(--text);
+}
+
+.nav-btn {
+padding: 10px 16px;
+
+border: 1px solid rgba(74,158,232,.3);
+
+border-radius: 8px;
+
+color: var(--blue);
+
+font-size: 12px;
+font-weight: 600;
+
+background: rgba(74,158,232,.08);
+
+}
+
+/* =========================================================
+HERO
+========================================================= */
+
+.hero {
+max-width: var(--max-w);
+
+min-height: 700px;
+
+margin: auto;
+
+padding: 105px 28px 80px;
+
+display: grid;
+
+grid-template-columns:
+    1fr 1.08fr;
+
+align-items: center;
+
+gap: 65px;
+
+}
+
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+
+padding: 7px 12px;
+
+margin-bottom: 24px;
+
+border:
+    1px solid rgba(61,204,142,.2);
+
+border-radius: 30px;
+
+background: rgba(61,204,142,.06);
+
+color: var(--green);
+
+font-size: 11px;
+font-weight: 600;
+
+}
+
+.badge-dot {
+width: 6px;
+height: 6px;
+
+border-radius: 50%;
+
+background: var(--green);
+
+box-shadow:
+    0 0 10px var(--green);
+
+}
+
+.hero h1 {
+font-family: 'Outfit', sans-serif;
+
+font-size:
+    clamp(48px, 6vw, 76px);
+
+line-height: .98;
+
+letter-spacing: -3px;
+
+margin-bottom: 28px;
+
+}
+
+.hero h1 span {
+color: var(--blue);
+}
+
+.hero-description {
+max-width: 560px;
+
+color: var(--text2);
+
+font-size: 16px;
+
+line-height: 1.8;
+
+margin-bottom: 30px;
+
+}
+
+.hero-buttons {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+}
+
+.btn-primary {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+
+padding: 13px 19px;
+
+border-radius: 9px;
+
+background:
+    linear-gradient(
+        135deg,
+        #4a9ee8,
+        #2676c0
+    );
+
+color: white;
+
+font-size: 13px;
+font-weight: 600;
+
+box-shadow:
+    0 10px 30px rgba(74,158,232,.16);
+
+transition: .25s;
+
+}
+
+.btn-primary:hover {
+transform: translateY(-2px);
+
+box-shadow:
+    0 14px 35px rgba(74,158,232,.25);
+
+}
+
+.btn-outline {
+display: inline-flex;
+align-items: center;
+
+padding: 12px 18px;
+
+border:
+    1px solid var(--border2);
+
+border-radius: 9px;
+
+color: var(--text2);
+
+font-size: 13px;
+
+transition: .25s;
+
+}
+
+.btn-outline:hover {
+border-color: rgba(74,158,232,.4);
+color: var(--text);
+}
+
+/* =========================================================
+SUPPLIER DASHBOARD
+========================================================= */
+
+.hero-dashboard {
+position: relative;
+
+perspective: 1200px;
+
+}
+
+.dashboard-window {
+overflow: hidden;
+
+background:
+    linear-gradient(
+        145deg,
+        #101923,
+        #0b1118
+    );
+
+border:
+    1px solid rgba(255,255,255,.11);
+
+border-radius: 16px;
+
+box-shadow:
+    0 35px 100px rgba(0,0,0,.55),
+    0 0 50px rgba(74,158,232,.08);
+
+transform:
+    rotateY(-5deg)
+    rotateX(2deg);
+
+transition: .5s;
+
+}
+
+.dashboard-window:hover {
+transform:
+rotateY(0)
+rotateX(0)
+translateY(-5px);
+}
+
+.window-bar {
+height: 43px;
+
+display: flex;
+align-items: center;
+
+padding: 0 14px;
+
+border-bottom: 1px solid var(--border);
+
+background: rgba(255,255,255,.025);
+
+}
+
+.window-dots {
+display: flex;
+gap: 6px;
+}
+
+.window-dots span {
+width: 7px;
+height: 7px;
+
+border-radius: 50%;
+
+}
+
+.window-title {
+margin-left: 15px;
+
+font-size: 9px;
+
+color: var(--text3);
+
+letter-spacing: .8px;
+
+}
+
+.dashboard-content {
+display: grid;
+
+grid-template-columns: 125px 1fr;
+
+}
+
+/* Sidebar */
+
+.sidebar {
+min-height: 430px;
+
+padding: 17px 10px;
+
+border-right: 1px solid var(--border);
+
+background: rgba(0,0,0,.13);
+
+}
+
+.side-brand {
+font-family: 'Outfit', sans-serif;
+
+font-size: 13px;
+font-weight: 700;
+
+margin-bottom: 22px;
+
+color: white;
+
+}
+
+.side-item {
+padding: 8px 9px;
+
+margin-bottom: 4px;
+
+border-radius: 6px;
+
+font-size: 9px;
+
+color: var(--text3);
+
+}
+
+.side-item.active {
+color: var(--blue);
+
+background:
+    rgba(74,158,232,.1);
+
+border:
+    1px solid rgba(74,158,232,.12);
+
+}
+
+/* Main */
+
+.dash-main {
+padding: 18px;
+}
+
+.dash-heading {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+margin-bottom: 16px;
+
+}
+
+.dash-heading h3 {
+font-family: 'Outfit', sans-serif;
+
+font-size: 18px;
+
+}
+
+.live-status {
+display: flex;
+align-items: center;
+gap: 5px;
+
+color: var(--green);
+
+font-size: 8px;
+
+}
+
+.live-status i {
+width: 5px;
+height: 5px;
+
+border-radius: 50%;
+
+background: var(--green);
+
+box-shadow: 0 0 8px var(--green);
+
+}
+
+/* KPI */
+
+.kpi-grid {
+display: grid;
+
+grid-template-columns:
+    repeat(4, 1fr);
+
+gap: 8px;
+
+margin-bottom: 12px;
+
+}
+
+.kpi {
+padding: 11px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 8px;
+
+background: var(--bg3);
+
+}
+
+.kpi-label {
+color: var(--text3);
+
+font-size: 8px;
+
+margin-bottom: 4px;
+
+}
+
+.kpi-value {
+font-family: 'Outfit', sans-serif;
+
+font-size: 18px;
+font-weight: 600;
+
+}
+
+.kpi-change {
+margin-top: 3px;
+
+font-size: 7px;
+
+color: var(--green);
+
+}
+
+/* Supplier cards */
+
+.supplier-preview-grid {
+display: grid;
+
+grid-template-columns:
+    1.2fr .8fr;
+
+gap: 10px;
+
+}
+
+.supplier-card,
+.performance-card {
+min-height: 195px;
+
+padding: 13px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 9px;
+
+background: var(--bg3);
+
+}
+
+.card-title {
+font-size: 9px;
+
+color: var(--text2);
+
+margin-bottom: 13px;
+
+}
+
+.supplier-row {
+display: flex;
+align-items: center;
+
+gap: 9px;
+
+padding: 8px 0;
+
+border-bottom: 1px solid var(--border);
+
+}
+
+.supplier-avatar {
+width: 27px;
+height: 27px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+flex-shrink: 0;
+
+border-radius: 7px;
+
+color: var(--blue);
+
+background: rgba(74,158,232,.09);
+
+font-family: 'Outfit', sans-serif;
+
+font-size: 9px;
+font-weight: 700;
+
+}
+
+.supplier-info {
+flex: 1;
+}
+
+.supplier-name {
+color: var(--text2);
+
+font-size: 8px;
+
+}
+
+.supplier-sub {
+color: var(--text3);
+
+font-size: 7px;
+
+}
+
+.supplier-status {
+font-size: 7px;
+
+color: var(--green);
+
+}
+
+/* Performance */
+
+.performance-item {
+margin-bottom: 12px;
+}
+
+.performance-label {
+display: flex;
+justify-content: space-between;
+
+margin-bottom: 5px;
+
+color: var(--text3);
+
+font-size: 7px;
+
+}
+
+.progress {
+height: 5px;
+
+overflow: hidden;
+
+border-radius: 20px;
+
+background: rgba(255,255,255,.05);
+
+}
+
+.progress span {
+display: block;
+
+height: 100%;
+
+border-radius: inherit;
+
+background:
+    linear-gradient(
+        90deg,
+        #2676c0,
+        #4a9ee8
+    );
+
+}
+
+/* =========================================================
+TECH STRIP
+========================================================= */
+
+.tech-strip {
+border-top: 1px solid var(--border);
+border-bottom: 1px solid var(--border);
+
+padding: 22px 20px;
+
+text-align: center;
+
+background: rgba(255,255,255,.012);
+
+}
+
+.tech-label {
+color: var(--text3);
+
+font-size: 10px;
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+margin-bottom: 17px;
+
+}
+
+.tech-list {
+display: flex;
+
+justify-content: center;
+
+flex-wrap: wrap;
+
+gap: 10px;
+
+}
+
+.tech {
+padding: 8px 14px;
+
+border: 1px solid var(--border);
+
+border-radius: 7px;
+
+color: var(--text2);
+
+font-size: 11px;
+
+background: var(--bg2);
+
+}
+
+/* =========================================================
+GENERAL SECTIONS
+========================================================= */
+
+section {
+padding: 110px 28px;
+}
+
+.section-inner {
+max-width: var(--max-w);
+
+margin: auto;
+
+}
+
+.section-tag {
+display: inline-block;
+
+color: var(--blue);
+
+font-size: 10px;
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+font-weight: 600;
+
+margin-bottom: 12px;
+
+}
+
+.section-title {
+font-family: 'Outfit', sans-serif;
+
+font-size:
+    clamp(34px, 4vw, 50px);
+
+line-height: 1.1;
+
+letter-spacing: -1.5px;
+
+margin-bottom: 17px;
+
+}
+
+.section-sub {
+max-width: 650px;
+
+color: var(--text2);
+
+font-size: 15px;
+
+line-height: 1.8;
+
+}
+
+/* =========================================================
+FEATURES
+========================================================= */
+
+.features {
+background:
+linear-gradient(
+180deg,
+transparent,
+rgba(74,158,232,.025),
+transparent
+);
+}
+
+.features-header {
+text-align: center;
+
+max-width: 700px;
+
+margin: auto auto 55px;
+
+}
+
+.features-header .section-sub {
+margin: auto;
+}
+
+.feature-grid {
+display: grid;
+
+grid-template-columns:
+    repeat(3, 1fr);
+
+gap: 15px;
+
+}
+
+.feature-card {
+position: relative;
+
+padding: 27px;
+
+min-height: 235px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 14px;
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.025),
+        rgba(255,255,255,.008)
+    );
+
+transition: .3s;
+
+overflow: hidden;
+
+}
+
+.feature-card:hover {
+transform: translateY(-6px);
+
+border-color:
+    rgba(74,158,232,.25);
+
+box-shadow: var(--glow);
+
+}
+
+.feature-icon {
+width: 43px;
+height: 43px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+margin-bottom: 20px;
+
+border-radius: 10px;
+
+color: var(--blue);
+
+background:
+    rgba(74,158,232,.09);
+
+border:
+    1px solid rgba(74,158,232,.15);
+
+font-size: 18px;
+
+}
+
+.feature-card:nth-child(2) .feature-icon {
+color: var(--green);
+background: rgba(61,204,142,.08);
+}
+
+.feature-card:nth-child(3) .feature-icon {
+color: var(--purple);
+background: rgba(136,136,248,.08);
+}
+
+.feature-card:nth-child(4) .feature-icon {
+color: var(--orange);
+background: rgba(240,160,48,.08);
+}
+
+.feature-card:nth-child(5) .feature-icon {
+color: var(--cyan);
+background: rgba(0,217,255,.08);
+}
+
+.feature-card:nth-child(6) .feature-icon {
+color: var(--green);
+background: rgba(61,204,142,.08);
+}
+
+.feature-card h3 {
+font-family: 'Outfit', sans-serif;
+
+font-size: 19px;
+
+margin-bottom: 10px;
+
+}
+
+.feature-card p {
+color: var(--text3);
+
+font-size: 13px;
+
+line-height: 1.7;
+
+}
+
+/* =========================================================
+SUPPLIER DIRECTORY
+========================================================= */
+
+.directory {
+background: var(--bg2);
+}
+
+.directory-layout {
+display: grid;
+
+grid-template-columns:
+    .75fr 1.45fr;
+
+gap: 65px;
+
+align-items: center;
+
+}
+
+.directory-copy .section-sub {
+margin-bottom: 25px;
+}
+
+.check-list {
+display: grid;
+
+gap: 12px;
+
+}
+
+.check {
+display: flex;
+
+align-items: center;
+
+gap: 10px;
+
+color: var(--text2);
+
+font-size: 13px;
+
+}
+
+.check span {
+width: 20px;
+height: 20px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 50%;
+
+color: var(--green);
+
+background: rgba(61,204,142,.08);
+
+font-size: 10px;
+
+}
+
+/* =========================================================
+SUPPLIER TABLE
+========================================================= */
+
+.supplier-window {
+overflow: hidden;
+
+border:
+    1px solid var(--border2);
+
+border-radius: 14px;
+
+background: var(--bg3);
+
+box-shadow: var(--shadow);
+
+}
+
+.supplier-toolbar {
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+gap: 15px;
+
+padding: 15px 17px;
+
+border-bottom: 1px solid var(--border);
+
+}
+
+.supplier-toolbar strong {
+font-family: 'Outfit', sans-serif;
+
+font-size: 16px;
+
+}
+
+.search-box {
+padding: 7px 10px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 6px;
+
+color: var(--text3);
+
+font-size: 9px;
+
+background: var(--bg2);
+
+}
+
+.supplier-table-wrapper {
+overflow-x: auto;
+}
+
+.supplier-table {
+width: 100%;
+
+min-width: 680px;
+
+border-collapse: collapse;
+
+}
+
+.supplier-table th {
+text-align: left;
+
+padding: 11px 14px;
+
+color: var(--text3);
+
+font-size: 9px;
+
+font-weight: 500;
+
+border-bottom: 1px solid var(--border);
+
+}
+
+.supplier-table td {
+padding: 13px 14px;
+
+border-bottom: 1px solid var(--border);
+
+color: var(--text2);
+
+font-size: 10px;
+
+}
+
+.supplier-table tr:last-child td {
+border-bottom: 0;
+}
+
+.table-supplier-name {
+color: var(--text);
+
+font-weight: 500;
+
+}
+
+.supplier-code {
+color: var(--text3);
+
+font-size: 9px;
+
+}
+
+.status {
+display: inline-block;
+
+padding: 4px 7px;
+
+border-radius: 5px;
+
+font-size: 8px;
+
+}
+
+.status.active {
+color: var(--green);
+
+background: rgba(61,204,142,.08);
+
+}
+
+.status.review {
+color: var(--orange);
+
+background: rgba(240,160,48,.08);
+
+}
+
+/* =========================================================
+WORKFLOW
+========================================================= */
+
+.workflow {
+text-align: center;
+}
+
+.workflow-header {
+max-width: 680px;
+
+margin: auto auto 60px;
+
+}
+
+.workflow-grid {
+display: grid;
+
+grid-template-columns:
+    repeat(4,1fr);
+
+gap: 15px;
+
+}
+
+.workflow-card {
+position: relative;
+
+padding: 25px 20px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 13px;
+
+background: var(--bg2);
+
+}
+
+.workflow-number {
+width: 38px;
+height: 38px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+margin: auto auto 17px;
+
+border-radius: 50%;
+
+background:
+    rgba(74,158,232,.1);
+
+border:
+    1px solid rgba(74,158,232,.2);
+
+color: var(--blue);
+
+font-family: 'Outfit', sans-serif;
+
+font-size: 13px;
+
+font-weight: 700;
+
+}
+
+.workflow-card h3 {
+font-family: 'Outfit', sans-serif;
+
+font-size: 17px;
+
+margin-bottom: 8px;
+
+}
+
+.workflow-card p {
+color: var(--text3);
+
+font-size: 12px;
+
+line-height: 1.7;
+
+}
+
+/* =========================================================
+SUPPLIER PROFILE
+========================================================= */
+
+.profile-section {
+background:
+radial-gradient(
+circle at 20% 50%,
+rgba(74,158,232,.06),
+transparent 35%
+);
+}
+
+.profile-layout {
+display: grid;
+
+grid-template-columns:
+    1fr 1fr;
+
+gap: 20px;
+
+margin-top: 45px;
+
+}
+
+.profile-card {
+padding: 27px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 13px;
+
+background: rgba(255,255,255,.015);
+
+}
+
+.profile-header {
+display: flex;
+
+align-items: center;
+
+gap: 14px;
+
+margin-bottom: 22px;
+
+}
+
+.profile-avatar {
+width: 54px;
+height: 54px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 13px;
+
+color: var(--blue);
+
+background: rgba(74,158,232,.1);
+
+border: 1px solid rgba(74,158,232,.15);
+
+font-family: 'Outfit', sans-serif;
+
+font-weight: 700;
+
+}
+
+.profile-header h3 {
+font-family: 'Outfit', sans-serif;
+
+font-size: 20px;
+
+}
+
+.profile-header p {
+color: var(--text3);
+
+font-size: 11px;
+
+}
+
+.profile-details {
+display: grid;
+
+grid-template-columns:
+    1fr 1fr;
+
+gap: 10px;
+
+}
+
+.detail {
+padding: 12px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 8px;
+
+background: var(--bg3);
+
+}
+
+.detail-label {
+color: var(--text3);
+
+font-size: 8px;
+
+margin-bottom: 4px;
+
+text-transform: uppercase;
+
+letter-spacing: .8px;
+
+}
+
+.detail-value {
+color: var(--text2);
+
+font-size: 10px;
+
+}
+
+/* Purchase summary */
+
+.purchase-summary {
+padding: 27px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 13px;
+
+background: rgba(255,255,255,.015);
+
+}
+
+.purchase-summary h3 {
+font-family: 'Outfit', sans-serif;
+
+font-size: 19px;
+
+margin-bottom: 20px;
+
+}
+
+.purchase-stat-grid {
+display: grid;
+
+grid-template-columns:
+    repeat(2,1fr);
+
+gap: 10px;
+
+}
+
+.purchase-stat {
+padding: 17px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 9px;
+
+background: var(--bg3);
+
+}
+
+.purchase-stat-value {
+font-family: 'Outfit', sans-serif;
+
+font-size: 24px;
+
+margin-bottom: 3px;
+
+}
+
+.purchase-stat-label {
+color: var(--text3);
+
+font-size: 9px;
+
+}
+
+/* =========================================================
+TECHNICAL
+========================================================= */
+
+.technical-grid {
+display: grid;
+
+grid-template-columns:
+    1fr 1fr;
+
+gap: 20px;
+
+margin-top: 45px;
+
+}
+
+.tech-card {
+padding: 27px;
+
+border:
+    1px solid var(--border);
+
+border-radius: 13px;
+
+background: rgba(255,255,255,.015);
+
+}
+
+.tech-card h3 {
+font-family: 'Outfit', sans-serif;
+
+margin-bottom: 17px;
+
+font-size: 19px;
+
+}
+
+.tech-pills {
+display: flex;
+
+flex-wrap: wrap;
+
+gap: 8px;
+
+}
+
+.tech-pill {
+padding: 7px 10px;
+
+border-radius: 6px;
+
+background: var(--bg3);
+
+border: 1px solid var(--border);
+
+color: var(--text2);
+
+font-size: 10px;
+
+}
+
+.architecture {
+display: grid;
+
+grid-template-columns:
+    repeat(3,1fr);
+
+gap: 10px;
+
+}
+
+.arch-item {
+padding: 13px;
+
+text-align: center;
+
+border:
+    1px solid var(--border);
+
+border-radius: 8px;
+
+background: var(--bg3);
+
+color: var(--text2);
+
+font-size: 10px;
+
+}
+
+.arch-item strong {
+display: block;
+
+color: var(--blue);
+
+margin-bottom: 4px;
+
+font-size: 11px;
+
+}
+
+/* =========================================================
+CTA
+========================================================= */
+
+.cta {
+max-width: 900px;
+
+margin: 40px auto 110px;
+
+padding: 55px 45px;
+
+text-align: center;
+
+border:
+    1px solid rgba(74,158,232,.18);
+
+border-radius: 18px;
+
+background:
+    radial-gradient(
+        circle at 50% 0,
+        rgba(74,158,232,.1),
+        transparent 60%
+    ),
+    var(--bg2);
+
+box-shadow: var(--glow);
+
+}
+
+.cta h2 {
+font-family: 'Outfit', sans-serif;
+
+font-size: 38px;
+
+margin-bottom: 12px;
+
+}
+
+.cta p {
+max-width: 600px;
+
+margin: 0 auto 25px;
+
+color: var(--text2);
+
+font-size: 14px;
+
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+footer {
+border-top: 1px solid var(--border);
+
+padding:
+    25px max(28px, calc((100vw - var(--max-w)) / 2));
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+flex-wrap: wrap;
+
+gap: 12px;
+
+color: var(--text3);
+
+font-size: 11px;
+
+}
+
+.footer-links {
+display: flex;
+
+gap: 18px;
+
+}
+
+.footer-links a:hover {
+color: var(--text);
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+html {
+    scroll-behavior: auto;
+}
+
+*,
+*::before,
+*::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+}
+
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media(max-width: 900px) {
+
+.nav-links {
+    display: none;
+}
+
+.hero {
+    grid-template-columns: 1fr;
+
+    padding-top: 80px;
+
+    gap: 50px;
+}
+
+.hero-dashboard {
+    max-width: 700px;
+
+    width: 100%;
+
+    margin: auto;
+}
+
+.feature-grid {
+    grid-template-columns:
+        repeat(2,1fr);
+}
+
+.directory-layout {
+    grid-template-columns: 1fr;
+}
+
+.workflow-grid {
+    grid-template-columns:
+        repeat(2,1fr);
+}
+
+.profile-layout,
+.technical-grid {
+    grid-template-columns: 1fr;
+}
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media(max-width: 600px) {
+
+nav {
+    padding: 0 18px;
+}
+
+.nav-btn {
+    display: none;
+}
+
+section {
+    padding: 75px 18px;
+}
+
+.hero {
+    padding:
+        70px 18px 60px;
+}
+
+.hero h1 {
+    font-size: 50px;
+
+    letter-spacing: -2px;
+}
+
+.dashboard-content {
+    grid-template-columns: 1fr;
+}
+
+.sidebar {
+    display: none;
+}
+
+.kpi-grid {
+    grid-template-columns:
+        repeat(2,1fr);
+}
+
+.supplier-preview-grid {
+    grid-template-columns: 1fr;
+}
+
+.feature-grid,
+.workflow-grid {
+    grid-template-columns: 1fr;
+}
+
+.profile-details,
+.purchase-stat-grid {
+    grid-template-columns: 1fr;
+}
+
+.architecture {
+    grid-template-columns: 1fr;
+}
+
+.cta {
+    margin:
+        20px 18px 70px;
+
+    padding: 40px 22px;
+}
+
+.cta h2 {
+    font-size: 30px;
+}
+
+footer {
+    padding: 22px 18px;
+}
+
+}
+
+</style> </head> <body> <!-- ====================================================== NAVIGATION ====================================================== --> <nav>
+<a href="/" class="nav-logo">
+
+    <div class="logo-icon">
+        ♧
+    </div>
+
+    Israel Abarquez
+
+</a>
+
+<div class="nav-links">
+
+    <a href="#overview">
+        Overview
+    </a>
+
+    <a href="#features">
+        Features
+    </a>
+
+    <a href="#suppliers">
+        Suppliers
+    </a>
+
+    <a href="#technology">
+        Technology
+    </a>
+
+</div>
+
+<a href="/#contact" class="nav-btn">
+    Start a Project
+</a>
+
+</nav> <!-- ====================================================== HERO ====================================================== --> <section class="hero" id="overview">
+<div>
+
+    <div class="hero-badge">
+
+        <span class="badge-dot"></span>
+
+        Supplier Management Module
+
+    </div>
+
+    <h1>
+
+        Supplier
+        <br>
+
+        <span>Management</span>
+        <br>
+
+        System
+
+    </h1>
+
+    <p class="hero-description">
+
+        A centralized supplier management solution designed
+        to organize supplier records, maintain contact
+        information, monitor purchasing activity and give
+        businesses better visibility into supplier relationships.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#features"
+           class="btn-primary">
+
+            Explore Module
+
+            →
+
+        </a>
+
+        <a href="#suppliers"
+           class="btn-outline">
+
+            View Suppliers
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- DASHBOARD PREVIEW -->
+
+<div class="hero-dashboard">
+
+    <div class="dashboard-window">
+
+        <div class="window-bar">
+
+            <div class="window-dots">
+
+                <span style="background:#e85a5a"></span>
+                <span style="background:#f0a030"></span>
+                <span style="background:#3dcc8e"></span>
+
+            </div>
+
+            <div class="window-title">
+
+                INVENTORY PRO — SUPPLIER MANAGEMENT
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-content">
+
+            <aside class="sidebar">
+
+                <div class="side-brand">
+                    Inventory Pro
+                </div>
+
+                <div class="side-item">
+                    ◉ Dashboard
+                </div>
+
+                <div class="side-item">
+                    ▦ Products
+                </div>
+
+                <div class="side-item">
+                    ⇅ Inventory
+                </div>
+
+                <div class="side-item">
+                    ◫ Purchases
+                </div>
+
+                <div class="side-item active">
+                    ♧ Suppliers
+                </div>
+
+                <div class="side-item">
+                    ▤ Reports
+                </div>
+
+                <div class="side-item">
+                    ⚙ Settings
+                </div>
+
+            </aside>
+
+            <main class="dash-main">
+
+                <div class="dash-heading">
+
+                    <div>
+
+                        <h3>
+                            Suppliers
+                        </h3>
+
+                        <span
+                            style="
+                            color:var(--text3);
+                            font-size:8px;">
+                            Supplier overview
+                        </span>
+
+                    </div>
+
+                    <div class="live-status">
+
+                        <i></i>
+
+                        Database connected
+
+                    </div>
+
+                </div>
+
+                <div class="kpi-grid">
+
+                    <div class="kpi">
+
+                        <div class="kpi-label">
+                            Total Suppliers
+                        </div>
+
+                        <div class="kpi-value">
+                            86
+                        </div>
+
+                        <div class="kpi-change">
+                            ↑ 6.8%
+                        </div>
+
+                    </div>
+
+                    <div class="kpi">
+
+                        <div class="kpi-label">
+                            Active
+                        </div>
+
+                        <div class="kpi-value">
+                            74
+                        </div>
+
+                        <div class="kpi-change">
+                            86% active
+                        </div>
+
+                    </div>
+
+                    <div class="kpi">
+
+                        <div class="kpi-label">
+                            Purchase Orders
+                        </div>
+
+                        <div class="kpi-value">
+                            128
+                        </div>
+
+                        <div class="kpi-change">
+                            This month
+                        </div>
+
+                    </div>
+
+                    <div class="kpi">
+
+                        <div class="kpi-label">
+                            Under Review
+                        </div>
+
+                        <div
+                            class="kpi-value"
+                            style="color:var(--orange)">
+                            5
+                        </div>
+
+                        <div
+                            class="kpi-change"
+                            style="color:var(--orange)">
+                            Needs attention
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="supplier-preview-grid">
+
+                    <div class="supplier-card">
+
+                        <div class="card-title">
+                            Recent suppliers
+                        </div>
+
+                        <div class="supplier-row">
+
+                            <div class="supplier-avatar">
+                                AC
+                            </div>
+
+                            <div class="supplier-info">
+
+                                <div class="supplier-name">
+                                    Apex Components
+                                </div>
+
+                                <div class="supplier-sub">
+                                    Electronics
+                                </div>
+
+                            </div>
+
+                            <div class="supplier-status">
+                                Active
+                            </div>
+
+                        </div>
+
+                        <div class="supplier-row">
+
+                            <div class="supplier-avatar">
+                                TG
+                            </div>
+
+                            <div class="supplier-info">
+
+                                <div class="supplier-name">
+                                    TechGear Distribution
+                                </div>
+
+                                <div class="supplier-sub">
+                                    Accessories
+                                </div>
+
+                            </div>
+
+                            <div class="supplier-status">
+                                Active
+                            </div>
+
+                        </div>
+
+                        <div class="supplier-row">
+
+                            <div class="supplier-avatar">
+                                NS
+                            </div>
+
+                            <div class="supplier-info">
+
+                                <div class="supplier-name">
+                                    Nova Supply Co.
+                                </div>
+
+                                <div class="supplier-sub">
+                                    Office Equipment
+                                </div>
+
+                            </div>
+
+                            <div class="supplier-status">
+                                Active
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="performance-card">
+
+                        <div class="card-title">
+                            Supplier performance
+                        </div>
+
+                        <div class="performance-item">
+
+                            <div class="performance-label">
+
+                                <span>
+                                    Delivery
+                                </span>
+
+                                <span>
+                                    94%
+                                </span>
+
+                            </div>
+
+                            <div class="progress">
+                                <span style="width:94%"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="performance-item">
+
+                            <div class="performance-label">
+
+                                <span>
+                                    Quality
+                                </span>
+
+                                <span>
+                                    91%
+                                </span>
+
+                            </div>
+
+                            <div class="progress">
+                                <span style="width:91%"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="performance-item">
+
+                            <div class="performance-label">
+
+                                <span>
+                                    Reliability
+                                </span>
+
+                                <span>
+                                    96%
+                                </span>
+
+                            </div>
+
+                            <div class="progress">
+                                <span style="width:96%"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== TECHNOLOGY STRIP ====================================================== --> <div class="tech-strip">
+<div class="tech-label">
+    Supplier management powered by
+</div>
+
+<div class="tech-list">
+
+    <span class="tech">
+        C#
+    </span>
+
+    <span class="tech">
+        .NET
+    </span>
+
+    <span class="tech">
+        Windows Forms
+    </span>
+
+    <span class="tech">
+        SQL Server
+    </span>
+
+    <span class="tech">
+        ADO.NET
+    </span>
+
+    <span class="tech">
+        CRUD
+    </span>
+
+</div>
+
+</div> <!-- ====================================================== FEATURES ====================================================== --> <section class="features" id="features">
+<div class="section-inner">
+
+    <div class="features-header">
+
+        <div class="section-tag">
+            Supplier capabilities
+        </div>
+
+        <h2 class="section-title">
+            Everything needed to manage supplier records
+        </h2>
+
+        <p class="section-sub">
+
+            The supplier module provides a structured
+            environment for maintaining supplier information,
+            tracking purchasing relationships and supporting
+            day-to-day procurement operations.
+
+        </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ♧
+            </div>
+
+            <h3>
+                Supplier Profiles
+            </h3>
+
+            <p>
+                Maintain supplier names, codes, addresses,
+                contact persons, phone numbers, email
+                addresses and business information.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ◉
+            </div>
+
+            <h3>
+                Contact Management
+            </h3>
+
+            <p>
+                Keep important supplier contact details
+                organized so purchasing staff can quickly
+                access the information they need.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ◫
+            </div>
+
+            <h3>
+                Purchase History
+            </h3>
+
+            <p>
+                Review previous purchase orders, transaction
+                dates, quantities and purchasing activity
+                associated with each supplier.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <h3>
+                Supplier Status
+            </h3>
+
+            <p>
+                Track active suppliers, inactive records and
+                suppliers requiring review or administrative
+                attention.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ↗
+            </div>
+
+            <h3>
+                Performance Tracking
+            </h3>
+
+            <p>
+                Monitor supplier-related indicators such as
+                delivery reliability, product quality and
+                purchasing performance.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔎
+            </div>
+
+            <h3>
+                Search & Filtering
+            </h3>
+
+            <p>
+                Quickly find suppliers using supplier codes,
+                company names, categories, status and other
+                searchable information.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== SUPPLIER DIRECTORY ====================================================== --> <section class="directory" id="suppliers">
+<div class="section-inner">
+
+    <div class="directory-layout">
+
+        <div class="directory-copy">
+
+            <div class="section-tag">
+                Supplier directory
+            </div>
+
+            <h2 class="section-title">
+                Keep every supplier organized
+            </h2>
+
+            <p class="section-sub">
+
+                Supplier records are maintained in a
+                centralized database, making it easier to
+                locate supplier information and connect
+                purchasing activity with the correct business.
+
+            </p>
+
+            <div class="check-list">
+
+                <div class="check">
+                    <span>✓</span>
+                    Supplier identification codes
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Company and contact information
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Supplier category
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Purchase order history
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Supplier status
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Search and filtering
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="supplier-window">
+
+            <div class="supplier-toolbar">
+
+                <strong>
+                    Suppliers
+                </strong>
+
+                <div class="search-box">
+                    🔎 Search suppliers...
+                </div>
+
+            </div>
+
+            <div class="supplier-table-wrapper">
+
+                <table class="supplier-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                SUPPLIER
+                            </th>
+
+                            <th>
+                                CODE
+                            </th>
+
+                            <th>
+                                CONTACT
+                            </th>
+
+                            <th>
+                                ORDERS
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <div class="table-supplier-name">
+                                    Apex Components
+                                </div>
+                                <div class="supplier-code">
+                                    Electronics
+                                </div>
+                            </td>
+
+                            <td>
+                                SUP-1001
+                            </td>
+
+                            <td>
+                                Mark Santos
+                            </td>
+
+                            <td>
+                                42
+                            </td>
+
+                            <td>
+                                <span class="status active">
+                                    Active
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <div class="table-supplier-name">
+                                    TechGear Distribution
+                                </div>
+                                <div class="supplier-code">
+                                    Accessories
+                                </div>
+                            </td>
+
+                            <td>
+                                SUP-1002
+                            </td>
+
+                            <td>
+                                Anna Reyes
+                            </td>
+
+                            <td>
+                                31
+                            </td>
+
+                            <td>
+                                <span class="status active">
+                                    Active
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <div class="table-supplier-name">
+                                    Nova Supply Co.
+                                </div>
+                                <div class="supplier-code">
+                                    Office Equipment
+                                </div>
+                            </td>
+
+                            <td>
+                                SUP-1003
+                            </td>
+
+                            <td>
+                                Daniel Cruz
+                            </td>
+
+                            <td>
+                                28
+                            </td>
+
+                            <td>
+                                <span class="status active">
+                                    Active
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <div class="table-supplier-name">
+                                    Metro Industrial Supply
+                                </div>
+                                <div class="supplier-code">
+                                    Hardware
+                                </div>
+                            </td>
+
+                            <td>
+                                SUP-1004
+                            </td>
+
+                            <td>
+                                Carla Mendoza
+                            </td>
+
+                            <td>
+                                19
+                            </td>
+
+                            <td>
+                                <span class="status review">
+                                    Review
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== WORKFLOW ====================================================== --> <section class="workflow">
+<div class="section-inner">
+
+    <div class="workflow-header">
+
+        <div class="section-tag">
+            Supplier workflow
+        </div>
+
+        <h2 class="section-title">
+            From supplier registration to purchasing
+        </h2>
+
+        <p class="section-sub" style="margin:auto">
+
+            The module connects supplier information with
+            procurement activities, creating a structured
+            workflow for managing supplier relationships.
+
+        </p>
+
+    </div>
+
+    <div class="workflow-grid">
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                01
+            </div>
+
+            <h3>
+                Register
+            </h3>
+
+            <p>
+                Create a supplier record and capture
+                company and contact information.
+            </p>
+
+        </div>
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                02
+            </div>
+
+            <h3>
+                Organize
+            </h3>
+
+            <p>
+                Assign supplier categories and maintain
+                structured business information.
+            </p>
+
+        </div>
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                03
+            </div>
+
+            <h3>
+                Purchase
+            </h3>
+
+            <p>
+                Connect suppliers with purchase orders,
+                products and procurement transactions.
+            </p>
+
+        </div>
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                04
+            </div>
+
+            <h3>
+                Evaluate
+            </h3>
+
+            <p>
+                Review supplier activity and performance
+                to support better purchasing decisions.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== SUPPLIER PROFILE ====================================================== --> <section class="profile-section">
+<div class="section-inner">
+
+    <div class="section-tag">
+        Supplier profile
+    </div>
+
+    <h2 class="section-title">
+        A complete view of each supplier
+    </h2>
+
+    <p class="section-sub">
+
+        Supplier profiles bring essential business
+        information and purchasing statistics together
+        in one organized interface.
+
+    </p>
+
+    <div class="profile-layout">
+
+        <div class="profile-card">
+
+            <div class="profile-header">
+
+                <div class="profile-avatar">
+                    AC
+                </div>
+
+                <div>
+
+                    <h3>
+                        Apex Components
+                    </h3>
+
+                    <p>
+                        SUP-1001 · Electronics Supplier
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="profile-details">
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        Contact Person
+                    </div>
+
+                    <div class="detail-value">
+                        Mark Santos
+                    </div>
+
+                </div>
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        Phone
+                    </div>
+
+                    <div class="detail-value">
+                        +63 917 555 0182
+                    </div>
+
+                </div>
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        Email
+                    </div>
+
+                    <div class="detail-value">
+                        sales@apexcomponents.example
+                    </div>
+
+                </div>
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        Location
+                    </div>
+
+                    <div class="detail-value">
+                        Manila, Philippines
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="purchase-summary">
+
+            <h3>
+                Purchasing summary
+            </h3>
+
+            <div class="purchase-stat-grid">
+
+                <div class="purchase-stat">
+
+                    <div class="purchase-stat-value">
+                        42
+                    </div>
+
+                    <div class="purchase-stat-label">
+                        Purchase Orders
+                    </div>
+
+                </div>
+
+                <div class="purchase-stat">
+
+                    <div
+                        class="purchase-stat-value"
+                        style="color:var(--green)">
+                        94%
+                    </div>
+
+                    <div class="purchase-stat-label">
+                        Delivery Rate
+                    </div>
+
+                </div>
+
+                <div class="purchase-stat">
+
+                    <div class="purchase-stat-value">
+                        ₱1.42M
+                    </div>
+
+                    <div class="purchase-stat-label">
+                        Purchase Value
+                    </div>
+
+                </div>
+
+                <div class="purchase-stat">
+
+                    <div
+                        class="purchase-stat-value"
+                        style="color:var(--blue)">
+                        4.8
+                    </div>
+
+                    <div class="purchase-stat-label">
+                        Supplier Rating
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== TECHNICAL ====================================================== --> <section class="technical" id="technology">
+<div class="section-inner">
+
+    <div class="section-tag">
+        Technical implementation
+    </div>
+
+    <h2 class="section-title">
+        Structured around real business data
+    </h2>
+
+    <p class="section-sub">
+
+        The supplier module demonstrates practical
+        database-driven application development including
+        CRUD operations, relational data, validation,
+        search functionality and supplier-to-purchase
+        relationships.
+
+    </p>
+
+    <div class="technical-grid">
+
+        <div class="tech-card">
+
+            <h3>
+                Technology Stack
+            </h3>
+
+            <div class="tech-pills">
+
+                <span class="tech-pill">
+                    C#
+                </span>
+
+                <span class="tech-pill">
+                    .NET
+                </span>
+
+                <span class="tech-pill">
+                    Windows Forms
+                </span>
+
+                <span class="tech-pill">
+                    SQL Server
+                </span>
+
+                <span class="tech-pill">
+                    ADO.NET
+                </span>
+
+                <span class="tech-pill">
+                    LINQ
+                </span>
+
+                <span class="tech-pill">
+                    CRUD
+                </span>
+
+                <span class="tech-pill">
+                    SQL Queries
+                </span>
+
+                <span class="tech-pill">
+                    Database Design
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="tech-card">
+
+            <h3>
+                Data Relationships
+            </h3>
+
+            <div class="architecture">
+
+                <div class="arch-item">
+
+                    <strong>
+                        Supplier
+                    </strong>
+
+                    Supplier Profile
+
+                </div>
+
+                <div class="arch-item">
+
+                    <strong>
+                        Product
+                    </strong>
+
+                    Supplied Items
+
+                </div>
+
+                <div class="arch-item">
+
+                    <strong>
+                        Purchase
+                    </strong>
+
+                    Purchase Orders
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== CTA ====================================================== --> <div class="cta">
+<div class="section-tag">
+    Inventory management project
+</div>
+
+<h2>
+    Better supplier data. Better purchasing decisions.
+</h2>
+
+<p>
+
+    A centralized supplier management module helps
+    businesses maintain accurate supplier records,
+    understand purchasing activity and build a more
+    organized procurement workflow.
+
+</p>
+
+<a href="/#contact"
+   class="btn-primary">
+
+    Discuss Your Project
+    →
+
+</a>
+
+</div> <!-- ====================================================== FOOTER ====================================================== --> <footer>
+<div>
+    © 2026 Israel Dayrit Abarquez. All rights reserved.
+</div>
+
+<div class="footer-links">
+
+    <a href="/">
+        Portfolio
+    </a>
+
+    <a href="/privacy-policy.html">
+        Privacy
+    </a>
+
+    <a href="/terms.html">
+        Terms
+    </a>
+
+</div>
+
+</footer> </body> </html>

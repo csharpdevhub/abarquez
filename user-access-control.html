@@ -1,0 +1,1074 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>User Access Control — Israel Dayrit Abarquez</title>
+    <meta name="description" content="User Access Control module for an Inventory Management System. Manage users, roles, permissions, authentication and administrative access using C#, .NET, Windows Forms and SQL Server.">
+
+    
+
+<!-- Classic images/favicon -->
+ 
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+
+<!-- PNG images/favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png?v=2">
+
+<!-- Apple -->
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=2">
+<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png?v=2">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=2">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"> 
+
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/components/css/user-access-control.css">
+<link rel="stylesheet" href="/components/css/animated-nav-logo.css">
+<link rel="stylesheet" href="/components/css/go-back.css">
+
+
+</head> 
+<body>
+    
+
+<nav>
+<a href="/" class="nav-logo">
+
+     <div class="info-logo">
+    <div class="info-core">
+        <span>i</span>
+    </div>
+    <div class="info-orbit orbit-1"><b></b></div>
+    <div class="info-orbit orbit-2"><b></b></div>
+    <div class="info-orbit orbit-3"><b></b></div>
+    <i class="info-particle p1"></i>
+    <i class="info-particle p2"></i>
+    <i class="info-particle p3"></i>
+    <i class="info-particle p4"></i>
+    <i class="info-particle p5"></i>
+  </div>
+
+    Access Control Demo
+
+</a>
+
+<div class="nav-links">
+
+    <a href="/login.html">
+        View Demo
+    </a>
+
+    <a href="#features">
+        Features
+    </a>
+
+    <a href="#roles">
+        Roles
+    </a>
+
+    <a href="#security">
+        Security
+    </a>
+
+</div>
+
+<a href="/contact.html" class="nav-btn">
+    Start a Project
+</a>
+
+</nav>
+
+
+<section class="hero" id="overview">
+<div>
+
+                    <button type="button"
+                                onclick="goBack()"
+                                class="back-to-portfolio-demo"
+                                aria-label="Go back to previous page">
+                            ⏪ Back 
+                        </button>
+
+                    <br>
+
+                    
+    <div class="hero-badge">
+
+        <span class="badge-dot"></span>
+
+        Security & Access Management
+
+    </div>
+
+    <h1>
+
+        User
+        <br>
+
+        <span>Access</span>
+        <br>
+
+        Control
+
+    </h1>
+
+    <p class="hero-description">
+
+        A centralized user access management module designed
+        to control authentication, roles, permissions and
+        administrative access across the inventory management
+        system.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#features"
+           class="btn-primary">
+
+            Explore Module
+            →
+
+        </a>
+
+        <a href="/login.html"
+           class="btn-outline">
+
+            View Demo
+
+        </a>
+
+
+
+    </div>
+
+</div>
+
+<!-- ACCESS DASHBOARD -->
+
+<div class="hero-dashboard">
+
+    <div class="access-window">
+
+        <div class="window-bar">
+
+            <div class="window-dots">
+
+                <span style="background:#e85a5a"></span>
+                <span style="background:#f0a030"></span>
+                <span style="background:#3dcc8e"></span>
+
+            </div>
+
+            <div class="window-title">
+
+                INVENTORY PRO — USER ACCESS
+
+            </div>
+
+        </div>
+
+        <div class="access-content">
+
+            <aside class="sidebar">
+
+                <div class="side-brand">
+                    Inventory Pro
+                </div>
+
+                <div class="side-item">
+                    ◉ Dashboard
+                </div>
+
+                <div class="side-item">
+                    ▦ Products
+                </div>
+
+                <div class="side-item">
+                    ⇅ Inventory
+                </div>
+
+                <div class="side-item">
+                    ◫ Purchases
+                </div>
+
+                <div class="side-item">
+                    ♧ Suppliers
+                </div>
+
+                <div class="side-item">
+                    ▤ Reports
+                </div>
+
+                <div class="side-item active">
+                    ◈ Users & Access
+                </div>
+
+            </aside>
+
+            <main class="access-main">
+
+                <div class="access-heading">
+
+                    <div>
+
+                        <h3>
+                            User Access
+                        </h3>
+
+                        <span style="
+                            color:var(--text3);
+                            font-size:8px;">
+                            Manage users and permissions
+                        </span>
+
+                    </div>
+
+                    <div class="security-status">
+
+                        <i></i>
+
+                        Access protected
+
+                    </div>
+
+                </div>
+
+                <div class="user-summary">
+
+                    <div class="summary-card">
+
+                        <div class="summary-label">
+                            Total Users
+                        </div>
+
+                        <div class="summary-value">
+                            24
+                        </div>
+
+                        <div class="summary-small">
+                            ↑ 3 this month
+                        </div>
+
+                    </div>
+
+                    <div class="summary-card">
+
+                        <div class="summary-label">
+                            Active Users
+                        </div>
+
+                        <div class="summary-value">
+                            21
+                        </div>
+
+                        <div class="summary-small">
+                            87.5% active
+                        </div>
+
+                    </div>
+
+                    <div class="summary-card">
+
+                        <div class="summary-label">
+                            Roles
+                        </div>
+
+                        <div class="summary-value">
+                            4
+                        </div>
+
+                        <div class="summary-small">
+                            Configured
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="user-table-card">
+
+                    <div class="card-title">
+                        Recent users
+                    </div>
+
+                    <div class="user-row">
+
+                        <div class="user-info">
+
+                            <div class="avatar">
+                                IA
+                            </div>
+
+                            <div>
+                                <div class="user-name">
+                                    Israel Abarquez
+                                </div>
+
+                                <div class="user-email">
+                                    admin@inventory.local
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <span class="role">
+                                Administrator
+                            </span>
+                        </div>
+
+                        <div class="active-status">
+                            ● Active
+                        </div>
+
+                    </div>
+
+                    <div class="user-row">
+
+                        <div class="user-info">
+
+                            <div class="avatar"
+                                 style="
+                                 color:var(--purple);
+                                 background:rgba(136,136,248,.1)">
+                                JM
+                            </div>
+
+                            <div>
+                                <div class="user-name">
+                                    John Martinez
+                                </div>
+
+                                <div class="user-email">
+                                    john@inventory.local
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <span class="role">
+                                Manager
+                            </span>
+                        </div>
+
+                        <div class="active-status">
+                            ● Active
+                        </div>
+
+                    </div>
+
+                    <div class="user-row">
+
+                        <div class="user-info">
+
+                            <div class="avatar"
+                                 style="
+                                 color:var(--green);
+                                 background:rgba(61,204,142,.1)">
+                                AS
+                            </div>
+
+                            <div>
+                                <div class="user-name">
+                                    Anna Santos
+                                </div>
+
+                                <div class="user-email">
+                                    anna@inventory.local
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <span class="role"
+                                  style="
+                                  color:var(--green);
+                                  background:rgba(61,204,142,.08)">
+                                Staff
+                            </span>
+                        </div>
+
+                        <div class="active-status">
+                            ● Active
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== TECHNOLOGY STRIP ====================================================== --> <div class="tech-strip">
+<div class="tech-label">
+    Access control implementation
+</div>
+
+<div class="tech-list">
+
+    <span class="tech">C#</span>
+    <span class="tech">.NET</span>
+    <span class="tech">Windows Forms</span>
+    <span class="tech">SQL Server</span>
+    <span class="tech">Authentication</span>
+    <span class="tech">Role-Based Access</span>
+
+</div>
+
+</div> <!-- ====================================================== FEATURES ====================================================== --> <section class="features" id="features">
+<div class="section-inner">
+
+    <div class="features-header">
+
+        <div class="section-tag">
+            Access capabilities
+        </div>
+
+        <h2 class="section-title">
+            Control who can access the system
+        </h2>
+
+        <p class="section-sub">
+
+            User access control provides administrators with
+            the tools needed to manage accounts, assign roles,
+            control permissions and maintain secure access to
+            business functions.
+
+        </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ◉
+            </div>
+
+            <h3>
+                User Accounts
+            </h3>
+
+            <p>
+                Create, update, deactivate and manage employee
+                accounts from a centralized administration
+                interface.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ◈
+            </div>
+
+            <h3>
+                Role Management
+            </h3>
+
+            <p>
+                Assign users to predefined roles such as
+                Administrator, Manager, Staff and Viewer.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <h3>
+                Permissions
+            </h3>
+
+            <p>
+                Define which modules and actions each role can
+                access, helping limit sensitive administrative
+                functions.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔐
+            </div>
+
+            <h3>
+                Authentication
+            </h3>
+
+            <p>
+                Validate user credentials before granting access
+                to protected application modules and business
+                functions.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ◫
+            </div>
+
+            <h3>
+                Session Control
+            </h3>
+
+            <p>
+                Track the currently authenticated user and
+                maintain appropriate access throughout the
+                application session.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ⚙
+            </div>
+
+            <h3>
+                Administration
+            </h3>
+
+            <p>
+                Give authorized administrators control over
+                accounts, roles and access policies without
+                exposing these settings to ordinary users.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== ROLES ====================================================== --> <section class="roles-section" id="roles">
+<div class="section-inner">
+
+    <div class="roles-layout">
+
+        <div class="role-copy">
+
+            <div class="section-tag">
+                Role-based access
+            </div>
+
+            <h2 class="section-title">
+                Give every user the right level of access
+            </h2>
+
+            <p class="section-sub">
+
+                Permissions are organized by user role so that
+                employees can access the functions required for
+                their responsibilities without giving everyone
+                administrative privileges.
+
+            </p>
+
+            <div class="check-list">
+
+                <div class="check">
+                    <span>✓</span>
+                    Administrator permissions
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Manager-level access
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Staff permissions
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Read-only access
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Module-level permissions
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Controlled administrative functions
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="permission-window">
+
+            <div class="permission-toolbar">
+
+                <strong>
+                    Role Permissions
+                </strong>
+
+                <div class="role-select">
+                    Manager ▾
+                </div>
+
+            </div>
+
+            <div class="permission-grid">
+
+                <div class="header">
+                    MODULE
+                </div>
+
+                <div class="header">
+                    VIEW
+                </div>
+
+                <div class="header">
+                    EDIT
+                </div>
+
+                <div class="header">
+                    DELETE
+                </div>
+
+                <div class="module">
+                    Products
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-limited">
+                    —
+                </div>
+
+                <div class="module">
+                    Inventory
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-limited">
+                    —
+                </div>
+
+                <div class="module">
+                    Purchases
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-no">
+                    ×
+                </div>
+
+                <div class="module">
+                    Suppliers
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-no">
+                    ×
+                </div>
+
+                <div class="module">
+                    Reports
+                </div>
+
+                <div class="permission-yes">
+                    ✓
+                </div>
+
+                <div class="permission-no">
+                    ×
+                </div>
+
+                <div class="permission-no">
+                    ×
+                </div>
+
+                <div class="module">
+                    User Access
+                </div>
+
+                <div class="permission-no">
+                    ×
+                </div>
+
+                <div class="permission-no">
+                    ×
+                </div>
+
+                <div class="permission-no">
+                    ×
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== WORKFLOW ====================================================== --> <section class="workflow">
+<div class="section-inner">
+
+    <div class="workflow-header">
+
+        <div class="section-tag">
+            Access workflow
+        </div>
+
+        <h2 class="section-title">
+            A controlled path from login to authorization
+        </h2>
+
+        <p class="section-sub" style="margin:auto">
+
+            The access workflow ensures that users are
+            authenticated first and authorized according to
+            their assigned role before sensitive application
+            functions become available.
+
+        </p>
+
+    </div>
+
+    <div class="workflow-grid">
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                01
+            </div>
+
+            <h3>
+                Authenticate
+            </h3>
+
+            <p>
+                User enters credentials and the system
+                validates the account.
+            </p>
+
+        </div>
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                02
+            </div>
+
+            <h3>
+                Identify
+            </h3>
+
+            <p>
+                The application identifies the user's
+                assigned role and account status.
+            </p>
+
+        </div>
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                03
+            </div>
+
+            <h3>
+                Authorize
+            </h3>
+
+            <p>
+                Role permissions determine which modules
+                and actions are available.
+            </p>
+
+        </div>
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                04
+            </div>
+
+            <h3>
+                Monitor
+            </h3>
+
+            <p>
+                Administrators can review accounts and
+                adjust access when responsibilities change.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== SECURITY ====================================================== --> <section class="security-section" id="security">
+<div class="section-inner">
+
+    <div class="section-tag">
+        Security controls
+    </div>
+
+    <h2 class="section-title">
+        Access designed around security
+    </h2>
+
+    <p class="section-sub">
+
+        The module demonstrates practical security concepts
+        for a business desktop application, including
+        authentication, authorization and controlled
+        administrative access.
+
+    </p>
+
+    <div class="security-grid">
+
+        <div class="security-card">
+
+            <h3>
+                Account Protection
+            </h3>
+
+            <div class="security-items">
+
+                <div class="security-item">
+                    Credential validation
+                    <span>Protected</span>
+                </div>
+
+                <div class="security-item">
+                    Role verification
+                    <span>Enabled</span>
+                </div>
+
+                <div class="security-item">
+                    Account status
+                    <span>Checked</span>
+                </div>
+
+                <div class="security-item">
+                    Restricted modules
+                    <span>Controlled</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="security-card">
+
+            <h3>
+                Administrative Controls
+            </h3>
+
+            <div class="security-items">
+
+                <div class="security-item">
+                    Create user accounts
+                    <span>Admin</span>
+                </div>
+
+                <div class="security-item">
+                    Assign roles
+                    <span>Admin</span>
+                </div>
+
+                <div class="security-item">
+                    Modify permissions
+                    <span>Admin</span>
+                </div>
+
+                <div class="security-item">
+                    Deactivate accounts
+                    <span>Admin</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== RESULTS ====================================================== --> <section class="results">
+<div class="section-inner">
+
+    <div class="section-tag">
+        Module highlights
+    </div>
+
+    <h2 class="section-title">
+        Built for controlled business access
+    </h2>
+
+    <div class="result-grid">
+
+        <div class="result">
+
+            <div class="result-number">
+                01
+            </div>
+
+            <div class="result-title">
+                Centralized Users
+            </div>
+
+            <p>
+                User accounts and access information can be
+                managed from one administration module.
+            </p>
+
+        </div>
+
+        <div class="result">
+
+            <div class="result-number">
+                02
+            </div>
+
+            <div class="result-title">
+                Role-Based Access
+            </div>
+
+            <p>
+                Users receive permissions based on their
+                responsibilities and assigned roles.
+            </p>
+
+        </div>
+
+        <div class="result">
+
+            <div class="result-number">
+                03
+            </div>
+
+            <div class="result-title">
+                Reduced Exposure
+            </div>
+
+            <p>
+                Sensitive administrative functions can be
+                restricted to authorized personnel.
+            </p>
+
+        </div>
+
+        <div class="result">
+
+            <div class="result-number">
+                04
+            </div>
+
+            <div class="result-title">
+                Maintainable Design
+            </div>
+
+            <p>
+                Additional roles, permissions and modules can
+                be incorporated as business requirements grow.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== CTA ====================================================== --> <div class="cta">
+<div class="section-tag">
+    Need controlled access?
+</div>
+
+<h2>
+    Let's build a secure business system.
+</h2>
+
+<p>
+
+    Need user management, role-based permissions,
+    authentication or administrative controls for a
+    custom desktop application?
+
+    I can develop an access system around your actual
+    business requirements.
+
+</p>
+
+<a href="/contact.html"
+   class="btn-primary">
+
+    Discuss Your Project
+    →
+
+</a>
+
+</div> 
+
+
+<script src="/components/js/go-back.js" defer></script>
+
+</body>
+</html>

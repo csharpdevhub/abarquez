@@ -1,0 +1,987 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Reports & Analytics — Israel Dayrit Abarquez</title>
+    <meta name="description" content="Reports and Analytics module for an Inventory Management System. Monitor inventory value, stock movement, purchasing activity, low-stock products and business performance.">
+
+
+<!-- Classic images/favicon -->
+ 
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+
+<!-- PNG images/favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png?v=2">
+
+<!-- Apple -->
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=2">
+<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png?v=2">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=2">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"> 
+
+ <link rel="stylesheet" href="/components/css/report.css">
+ <link rel="stylesheet" href="/components/css/animated-nav-logo.css">
+<link rel="stylesheet" href="/components/css/go-back.css">
+<link rel="stylesheet" href="/components/css/footer.css">
+
+</head> 
+<body> <!-- ====================================================== NAVIGATION ====================================================== --> <nav>
+<a href="/" class="nav-logo">
+
+     <div class="info-logo">
+    <div class="info-core">
+        <span>i</span>
+    </div>
+    <div class="info-orbit orbit-1"><b></b></div>
+    <div class="info-orbit orbit-2"><b></b></div>
+    <div class="info-orbit orbit-3"><b></b></div>
+    <i class="info-particle p1"></i>
+    <i class="info-particle p2"></i>
+    <i class="info-particle p3"></i>
+    <i class="info-particle p4"></i>
+    <i class="info-particle p5"></i>
+  </div>
+
+   Report Demo
+
+</a>
+
+<div class="nav-links">
+
+    <a href="#overview">
+        Overview
+    </a>
+
+    <a href="#reports">
+        Reports
+    </a>
+
+    <a href="#analytics">
+        Analytics
+    </a>
+
+    <a href="#technology">
+        Technology
+    </a>
+
+</div>
+
+<a href="/contact.html" class="nav-btn">
+    Start a Project
+</a>
+
+</nav> 
+<section class="hero" id="overview">
+<div>
+
+                        <button type="button"
+                                onclick="goBack()"
+                                class="back-to-portfolio-demo"
+                                aria-label="Go back to previous page">
+                            ⏪ Back 
+                        </button>
+
+                    <br>
+
+
+    <div class="hero-badge">
+
+        <span class="badge-dot"></span>
+
+        Business Intelligence Module
+
+    </div>
+
+    <h1>
+
+        Reports
+        <br>
+
+        <span>& Analytics</span>
+
+    </h1>
+
+    <p class="hero-description">
+
+        Turn inventory data into useful business insights.
+        Analyze stock movement, inventory value, purchasing
+        activity, product performance and operational trends
+        from one centralized reporting environment.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#reports" class="btn-primary">
+
+            Explore Reports
+            →
+
+        </a>
+
+        <a href="#analytics" class="btn-outline">
+
+            View Analytics
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ANALYTICS DASHBOARD -->
+
+<div>
+
+    <div class="analytics-window">
+
+        <div class="window-bar">
+
+            <div class="window-dots">
+
+                <span style="background:#e85a5a"></span>
+                <span style="background:#f0a030"></span>
+                <span style="background:#3dcc8e"></span>
+
+            </div>
+
+            <div class="window-title">
+
+                INVENTORY PRO — REPORTS & ANALYTICS
+
+            </div>
+
+        </div>
+
+        <div class="analytics-content">
+
+            <div class="analytics-heading">
+
+                <div>
+
+                    <h3>
+                        Business Analytics
+                    </h3>
+
+                    <span
+                        style="
+                        color:var(--text3);
+                        font-size:8px;">
+                        Inventory performance overview
+                    </span>
+
+                </div>
+
+                <div class="period">
+                    This Month ▾
+                </div>
+
+            </div>
+
+            <div class="kpi-grid">
+
+                <div class="kpi">
+
+                    <div class="kpi-label">
+                        Inventory Value
+                    </div>
+
+                    <div class="kpi-value">
+                        ₱2.84M
+                    </div>
+
+                    <div class="kpi-change">
+                        ↑ 5.7%
+                    </div>
+
+                </div>
+
+                <div class="kpi">
+
+                    <div class="kpi-label">
+                        Stock Movement
+                    </div>
+
+                    <div class="kpi-value">
+                        8,426
+                    </div>
+
+                    <div class="kpi-change">
+                        ↑ 8.2%
+                    </div>
+
+                </div>
+
+                <div class="kpi">
+
+                    <div class="kpi-label">
+                        Purchases
+                    </div>
+
+                    <div class="kpi-value">
+                        ₱486K
+                    </div>
+
+                    <div class="kpi-change">
+                        ↑ 12.1%
+                    </div>
+
+                </div>
+
+                <div class="kpi">
+
+                    <div class="kpi-label">
+                        Low Stock
+                    </div>
+
+                    <div
+                        class="kpi-value"
+                        style="color:var(--orange)">
+                        24
+                    </div>
+
+                    <div
+                        class="kpi-change"
+                        style="color:var(--orange)">
+                        Attention
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="analytics-grid">
+
+                <div class="chart-card">
+
+                    <div class="card-title">
+                        Inventory movement
+                    </div>
+
+                    <div class="chart">
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                        <div
+                            class="chart-bar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="category-card">
+
+                    <div class="card-title">
+                        Inventory by category
+                    </div>
+
+                    <div class="donut"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== TECHNOLOGY STRIP ====================================================== --> <div class="tech-strip">
+<div class="tech-label">
+    Reporting powered by the application data layer
+</div>
+
+<div class="tech-list">
+
+    <span class="tech">C#</span>
+    <span class="tech">.NET</span>
+    <span class="tech">Windows Forms</span>
+    <span class="tech">SQL Server</span>
+    <span class="tech">LINQ</span>
+
+</div>
+
+</div> <!-- ====================================================== REPORT TYPES ====================================================== --> <section class="reports-section" id="reports">
+<div class="section-inner">
+
+    <div class="reports-header">
+
+        <div class="section-tag">
+            Reporting capabilities
+        </div>
+
+        <h2 class="section-title">
+            Reports that support daily decisions
+        </h2>
+
+        <p class="section-sub">
+
+            The reporting module organizes operational data
+            into structured reports that help users understand
+            inventory conditions, purchasing activity and
+            product performance.
+
+        </p>
+
+    </div>
+
+    <div class="report-grid">
+
+        <div class="report-card">
+
+            <div class="report-icon">
+                ▥
+            </div>
+
+            <h3>
+                Inventory Report
+            </h3>
+
+            <p>
+
+                View current product quantities, inventory
+                status, stock value, categories and overall
+                inventory availability.
+
+            </p>
+
+        </div>
+
+        <div class="report-card">
+
+            <div class="report-icon">
+                ⇅
+            </div>
+
+            <h3>
+                Stock Movement
+            </h3>
+
+            <p>
+
+                Analyze incoming and outgoing stock transactions
+                to understand how inventory changes over time.
+
+            </p>
+
+        </div>
+
+        <div class="report-card">
+
+            <div class="report-icon">
+                ₱
+            </div>
+
+            <h3>
+                Inventory Valuation
+            </h3>
+
+            <p>
+
+                Calculate and review the estimated value of
+                inventory based on product quantities and
+                recorded costs.
+
+            </p>
+
+        </div>
+
+        <div class="report-card">
+
+            <div class="report-icon">
+                ◫
+            </div>
+
+            <h3>
+                Purchase Report
+            </h3>
+
+            <p>
+
+                Review purchase orders, supplier transactions,
+                purchase quantities and purchasing costs.
+
+            </p>
+
+        </div>
+
+        <div class="report-card">
+
+            <div class="report-icon">
+                ▤
+            </div>
+
+            <h3>
+                Product Performance
+            </h3>
+
+            <p>
+
+                Identify products with high activity, slow
+                movement and inventory levels that may require
+                attention.
+
+            </p>
+
+        </div>
+
+        <div class="report-card">
+
+            <div class="report-icon">
+                !
+            </div>
+
+            <h3>
+                Low Stock Report
+            </h3>
+
+            <p>
+
+                Quickly identify products below their minimum
+                stock levels and prioritize replenishment
+                activities.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== ANALYTICS PREVIEW ====================================================== --> <section class="analytics-section" id="analytics">
+<div class="section-inner">
+
+    <div class="analytics-layout">
+
+        <div class="analytics-copy">
+
+            <div class="section-tag">
+                Analytics dashboard
+            </div>
+
+            <h2 class="section-title">
+                Understand what the inventory data is saying
+            </h2>
+
+            <p class="section-sub">
+
+                Instead of reviewing individual transactions,
+                users can analyze summarized information and
+                identify patterns that may affect inventory
+                operations.
+
+            </p>
+
+            <div class="check-list">
+
+                <div class="check">
+                    <span>✓</span>
+                    Date-based reporting
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Inventory trend analysis
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Product and category summaries
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Purchase activity analysis
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Low-stock identification
+                </div>
+
+                <div class="check">
+                    <span>✓</span>
+                    Report-ready structured data
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- REPORT TABLE -->
+
+        <div class="report-window">
+
+            <div class="report-toolbar">
+
+                <strong>
+                    Inventory Performance
+                </strong>
+
+                <div class="export-btn">
+                    Export Report
+                </div>
+
+            </div>
+
+            <table class="report-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            PRODUCT
+                        </th>
+
+                        <th>
+                            UNITS
+                        </th>
+
+                        <th>
+                            VALUE
+                        </th>
+
+                        <th>
+                            MOVEMENT
+                        </th>
+
+                        <th>
+                            TREND
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <span class="report-name">
+                                Wireless Keyboard
+                            </span>
+                        </td>
+
+                        <td>
+                            128
+                        </td>
+
+                        <td>
+                            ₱160K
+                        </td>
+
+                        <td>
+                            84
+                        </td>
+
+                        <td class="trend-up">
+                            ↑ 12%
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <span class="report-name">
+                                USB-C Hub
+                            </span>
+                        </td>
+
+                        <td>
+                            42
+                        </td>
+
+                        <td>
+                            ₱79K
+                        </td>
+
+                        <td>
+                            61
+                        </td>
+
+                        <td class="trend-up">
+                            ↑ 8%
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <span class="report-name">
+                                Wireless Mouse
+                            </span>
+                        </td>
+
+                        <td>
+                            8
+                        </td>
+
+                        <td>
+                            ₱6.8K
+                        </td>
+
+                        <td>
+                            73
+                        </td>
+
+                        <td class="trend-down">
+                            ↓ 4%
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <span class="report-name">
+                                24" LED Monitor
+                            </span>
+                        </td>
+
+                        <td>
+                            64
+                        </td>
+
+                        <td>
+                            ₱573K
+                        </td>
+
+                        <td>
+                            46
+                        </td>
+
+                        <td class="trend-up">
+                            ↑ 16%
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <span class="report-name">
+                                Mechanical Keyboard
+                            </span>
+                        </td>
+
+                        <td>
+                            36
+                        </td>
+
+                        <td>
+                            ₱91K
+                        </td>
+
+                        <td>
+                            28
+                        </td>
+
+                        <td class="trend-up">
+                            ↑ 6%
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== INSIGHTS ====================================================== --> <section class="insights">
+<div class="section-inner">
+
+    <div class="insights-header">
+
+        <div class="section-tag">
+            Analytical insights
+        </div>
+
+        <h2 class="section-title">
+            From raw transactions to useful information
+        </h2>
+
+        <p class="section-sub" style="margin:auto">
+
+            Reporting transforms stored inventory transactions
+            into summaries that can help users monitor
+            operations and identify areas that require action.
+
+        </p>
+
+    </div>
+
+    <div class="insight-grid">
+
+        <div class="insight">
+
+            <div class="insight-number">
+                01
+            </div>
+
+            <div class="insight-title">
+                Monitor Inventory
+            </div>
+
+            <p>
+
+                Track inventory quantities and valuation
+                across products and categories.
+
+            </p>
+
+        </div>
+
+        <div class="insight">
+
+            <div class="insight-number">
+                02
+            </div>
+
+            <div class="insight-title">
+                Identify Trends
+            </div>
+
+            <p>
+
+                Compare movement and activity over selected
+                reporting periods.
+
+            </p>
+
+        </div>
+
+        <div class="insight">
+
+            <div class="insight-number">
+                03
+            </div>
+
+            <div class="insight-title">
+                Detect Issues
+            </div>
+
+            <p>
+
+                Highlight low-stock products and unusual
+                inventory conditions.
+
+            </p>
+
+        </div>
+
+        <div class="insight">
+
+            <div class="insight-number">
+                04
+            </div>
+
+            <div class="insight-title">
+                Support Decisions
+            </div>
+
+            <p>
+
+                Give staff structured information for
+                purchasing and inventory planning.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== TECHNICAL ====================================================== --> <section class="technical" id="technology">
+<div class="section-inner">
+
+    <div class="section-tag">
+        Technical implementation
+    </div>
+
+    <h2 class="section-title">
+        Built on structured inventory data
+    </h2>
+
+    <p class="section-sub">
+
+        The reporting module demonstrates how application
+        data can be queried, filtered, aggregated and
+        presented through a desktop reporting interface.
+
+    </p>
+
+    <div class="technical-grid">
+
+        <div class="tech-card">
+
+            <h3>
+                Reporting Technology
+            </h3>
+
+            <div class="tech-pills">
+
+                <span class="tech-pill">
+                    C#
+                </span>
+
+                <span class="tech-pill">
+                    .NET
+                </span>
+
+                <span class="tech-pill">
+                    Windows Forms
+                </span>
+
+                <span class="tech-pill">
+                    SQL Server
+                </span>
+
+                <span class="tech-pill">
+                    LINQ
+                </span>
+
+                <span class="tech-pill">
+                    SQL Queries
+                </span>
+
+                <span class="tech-pill">
+                    Aggregations
+                </span>
+
+                <span class="tech-pill">
+                    Filtering
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="tech-card">
+
+            <h3>
+                Reporting Flow
+            </h3>
+
+            <div class="architecture">
+
+                <div class="arch-item">
+
+                    <strong>
+                        DATA
+                    </strong>
+
+                    Transactions
+
+                </div>
+
+                <div class="arch-item">
+
+                    <strong>
+                        QUERY
+                    </strong>
+
+                    SQL / LINQ
+
+                </div>
+
+                <div class="arch-item">
+
+                    <strong>
+                        REPORT
+                    </strong>
+
+                    Analytics UI
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section> <!-- ====================================================== CTA ====================================================== --> 
+
+<div class="cta">
+<div class="section-tag">
+    Need business reporting?
+</div>
+
+<h2>
+    Turn your data into useful insights.
+</h2>
+
+<p>
+
+    Need custom reports, dashboards, inventory analytics,
+    database reporting or a business intelligence module?
+    I can build reporting features around your actual
+    business requirements.
+
+</p>
+
+<a href="/contact.html" class="btn-primary">
+
+    Discuss Your Project
+    →
+
+</a>
+
+</div>
+
+
+
+<script src="/components/js/report.js" defer></script>
+<script src="/components/js/go-back.js" defer></script>
+
+</body> 
+</html>

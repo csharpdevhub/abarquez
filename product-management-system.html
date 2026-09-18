@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product Management System — Professional IT Project</title>
+
+<meta name="description"
+      content="Modern Product Management System demonstrating product catalog management, inventory tracking, pricing, categories, and business analytics.">
+
+
+       
+<!-- Classic images/favicon -->
+ 
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+
+<!-- PNG images/favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png?v=2">
+
+<!-- Apple -->
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=2">
+<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png?v=2">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=2">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet" href="/components/css/product-management-system.css">
+<link rel="stylesheet" href="/components/css/animated-nav-logo.css">
+<link rel="stylesheet" href="/components/css/go-back.css">
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a href="/" class="nav-brand">
+
+
+
+      <div class="info-logo">
+        <div class="info-core">
+            <span>i</span>
+        </div>
+        <div class="info-orbit orbit-1"><b></b></div>
+        <div class="info-orbit orbit-2"><b></b></div>
+        <div class="info-orbit orbit-3"><b></b></div>
+        <i class="info-particle p1"></i>
+        <i class="info-particle p2"></i>
+        <i class="info-particle p3"></i>
+        <i class="info-particle p4"></i>
+        <i class="info-particle p5"></i>
+    </div>
+
+
+
+        Product Management Demo
+
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#overview">Overview</a>
+
+        <a href="#products">Products</a>
+
+        <a href="#categories">Categories</a>
+
+        <a href="#workflow">Workflow</a>
+
+    </div>
+
+    <div class="nav-actions">
+
+
+
+        <a href="#products" class="nav-btn primary">
+            View System
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="overview">
+
+    <div>
+
+        
+                        <button type="button"
+                                onclick="goBack()"
+                                class="back-to-portfolio-demo"
+                                aria-label="Go back to previous page">
+                            ⏪ Back 
+                        </button>
+
+<br>
+                        
+        <div class="badge">
+
+             
+
+
+            <span class="badge-dot"></span>
+
+            SAMPLE PROJECT • PRODUCT MANAGEMENT
+
+        </div>
+
+        <h1>
+
+            Product<br>
+
+            <span>Management</span><br>
+
+            System
+
+        </h1>
+
+        <p class="hero-description">
+
+            A modern business application designed to centralize
+            product information, pricing, inventory levels, categories,
+            and product status in one streamlined management platform.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products"
+               class="btn btn-primary">
+
+                Explore Product System →
+
+            </a>
+
+            <a href="#workflow"
+               class="btn btn-outline">
+
+                View Workflow
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO DASHBOARD -->
+
+    <div class="hero-preview">
+
+        <div class="glow"></div>
+
+        <div class="preview-window">
+
+            <div class="window-bar">
+
+                <span class="window-dot"
+                      style="background:#e85a5a"></span>
+
+                <span class="window-dot"
+                      style="background:#f0a030"></span>
+
+                <span class="window-dot"
+                      style="background:#3dcc8e"></span>
+
+                <span class="window-title">
+                    PRODUCT MANAGEMENT SYSTEM
+                </span>
+
+            </div>
+
+
+            <div class="preview-body">
+
+                <div class="preview-top">
+
+                    <div class="preview-heading">
+                        Product Overview
+                    </div>
+
+                    <div class="preview-status">
+                        ● SYSTEM ONLINE
+                    </div>
+
+                </div>
+
+
+                <div class="preview-stats">
+
+                    <div class="preview-stat">
+
+                        <small>
+                            PRODUCTS
+                        </small>
+
+                        <strong>
+                            248
+                        </strong>
+
+                    </div>
+
+                    <div class="preview-stat">
+
+                        <small>
+                            CATEGORIES
+                        </small>
+
+                        <strong>
+                            18
+                        </strong>
+
+                    </div>
+
+                    <div class="preview-stat">
+
+                        <small>
+                            LOW STOCK
+                        </small>
+
+                        <strong style="color:#f0a030">
+                            07
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mini-products">
+
+                    <div class="mini-product">
+
+                        <div class="product-icon">
+                            EL
+                        </div>
+
+                        <div>
+                            <div class="mini-product-name">
+                                Enterprise Laptop
+                            </div>
+
+                            <div class="mini-product-sub">
+                                Electronics • 128 units
+                            </div>
+                        </div>
+
+                        <span class="stock-dot"></span>
+
+                    </div>
+
+
+                    <div class="mini-product">
+
+                        <div class="product-icon">
+                            KB
+                        </div>
+
+                        <div>
+                            <div class="mini-product-name">
+                                Mechanical Keyboard
+                            </div>
+
+                            <div class="mini-product-sub">
+                                Accessories • 46 units
+                            </div>
+                        </div>
+
+                        <span class="stock-dot"></span>
+
+                    </div>
+
+
+                    <div class="mini-product">
+
+                        <div class="product-icon">
+                            MS
+                        </div>
+
+                        <div>
+                            <div class="mini-product-name">
+                                Wireless Mouse
+                            </div>
+
+                            <div class="mini-product-sub">
+                                Accessories • 8 units
+                            </div>
+                        </div>
+
+                        <span class="stock-dot"
+                              style="background:#f0a030"></span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <div class="section-tag">
+            SYSTEM CAPABILITIES
+        </div>
+
+        <h2 class="section-title">
+            Everything needed to manage products
+        </h2>
+
+        <p class="section-subtitle">
+            Designed as a practical business application with
+            a focus on usability, organization, accuracy, and
+            efficient product administration.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                +
+            </div>
+
+            <h3>
+                Product Management
+            </h3>
+
+            <p>
+                Create, update, organize, and maintain complete
+                product information from a centralized interface.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                #
+            </div>
+
+            <h3>
+                Inventory Tracking
+            </h3>
+
+            <p>
+                Monitor stock quantities and quickly identify
+                products that require replenishment.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                $
+            </div>
+
+            <h3>
+                Pricing Control
+            </h3>
+
+            <p>
+                Maintain product pricing, cost information,
+                and selling prices for better business control.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ◈
+            </div>
+
+            <h3>
+                Category Organization
+            </h3>
+
+            <p>
+                Group products into logical categories to make
+                searching and administration faster.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCT MANAGEMENT SYSTEM
+========================================================= -->
+
+<section class="system-section" id="products">
+
+    <div class="system">
+
+        <div class="system-header">
+
+            <div>
+
+                <div class="system-title">
+                    Product Management
+                </div>
+
+                <div class="system-sub">
+                    Manage your complete product catalog
+                </div>
+
+            </div>
+
+            <div class="system-actions">
+
+                <button class="system-btn"
+                        onclick="alert('Add Product form would open here.')">
+
+                    + Add Product
+
+                </button>
+
+                <button class="system-btn">
+
+                    Export
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ANALYTICS -->
+
+        <div class="analytics">
+
+            <div class="analytics-card">
+
+                <div class="analytics-label">
+                    TOTAL PRODUCTS
+                </div>
+
+                <div class="analytics-value">
+                    248
+                </div>
+
+                <div class="analytics-change">
+                    ▲ 12 this month
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-label">
+                    ACTIVE PRODUCTS
+                </div>
+
+                <div class="analytics-value"
+                     style="color:var(--green)">
+                    231
+                </div>
+
+                <div class="analytics-change">
+                    93.1% of catalog
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-label">
+                    LOW STOCK
+                </div>
+
+                <div class="analytics-value"
+                     style="color:var(--orange)">
+                    07
+                </div>
+
+                <div class="analytics-change"
+                     style="color:var(--orange)">
+                    Requires attention
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-label">
+                    OUT OF STOCK
+                </div>
+
+                <div class="analytics-value"
+                     style="color:var(--red)">
+                    03
+                </div>
+
+                <div class="analytics-change"
+                     style="color:var(--red)">
+                    Action recommended
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOOLBAR -->
+
+        <div class="toolbar">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products, SKU or category..."
+                    onkeyup="filterProducts()"
+                >
+
+            </div>
+
+
+            <div class="filters">
+
+                <select id="categoryFilter"
+                        onchange="filterProducts()">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="electronics">
+                        Electronics
+                    </option>
+
+                    <option value="accessories">
+                        Accessories
+                    </option>
+
+                    <option value="software">
+                        Software
+                    </option>
+
+                    <option value="office">
+                        Office Equipment
+                    </option>
+
+                </select>
+
+
+                <select id="stockFilter"
+                        onchange="filterProducts()">
+
+                    <option value="all">
+                        All Stock
+                    </option>
+
+                    <option value="in">
+                        In Stock
+                    </option>
+
+                    <option value="low">
+                        Low Stock
+                    </option>
+
+                    <option value="out">
+                        Out of Stock
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT TABLE -->
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Product
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Price
+                        </th>
+
+                        <th>
+                            Stock
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Last Updated
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="productTable">
+
+
+                    <tr data-category="electronics"
+                        data-stock="in">
+
+                        <td>
+
+                            <div class="product-cell">
+
+                                <div class="table-product-icon">
+                                    EL
+                                </div>
+
+                                <div>
+
+                                    <div class="product-name">
+                                        Enterprise Laptop
+                                    </div>
+
+                                    <div class="product-code">
+                                        SKU-1001
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <span class="category">
+                                Electronics
+                            </span>
+                        </td>
+
+                        <td class="price">
+                            ₱48,500
+                        </td>
+
+                        <td>
+                            128
+                        </td>
+
+                        <td>
+
+                            <span class="stock-status stock-good">
+                                ● In Stock
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Sep 12, 2026
+                        </td>
+
+                        <td>
+
+                            <button class="action-btn">
+                                ✎
+                            </button>
+
+                            <button class="action-btn">
+                                ⋮
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr data-category="accessories"
+                        data-stock="in">
+
+                        <td>
+
+                            <div class="product-cell">
+
+                                <div class="table-product-icon">
+                                    KB
+                                </div>
+
+                                <div>
+
+                                    <div class="product-name">
+                                        Mechanical Keyboard
+                                    </div>
+
+                                    <div class="product-code">
+                                        SKU-1002
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <span class="category">
+                                Accessories
+                            </span>
+                        </td>
+
+                        <td class="price">
+                            ₱4,250
+                        </td>
+
+                        <td>
+                            46
+                        </td>
+
+                        <td>
+
+                            <span class="stock-status stock-good">
+                                ● In Stock
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Sep 11, 2026
+                        </td>
+
+                        <td>
+
+                            <button class="action-btn">
+                                ✎
+                            </button>
+
+                            <button class="action-btn">
+                                ⋮
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr data-category="accessories"
+                        data-stock="low">
+
+                        <td>
+
+                            <div class="product-cell">
+
+                                <div class="table-product-icon">
+                                    MS
+                                </div>
+
+                                <div>
+
+                                    <div class="product-name">
+                                        Wireless Mouse
+                                    </div>
+
+                                    <div class="product-code">
+                                        SKU-1003
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <span class="category">
+                                Accessories
+                            </span>
+                        </td>
+
+                        <td class="price">
+                            ₱1,850
+                        </td>
+
+                        <td>
+                            8
+                        </td>
+
+                        <td>
+
+                            <span class="stock-status stock-low">
+                                ● Low Stock
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Sep 10, 2026
+                        </td>
+
+                        <td>
+
+                            <button class="action-btn">
+                                ✎
+                            </button>
+
+                            <button class="action-btn">
+                                ⋮
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr data-category="software"
+                        data-stock="in">
+
+                        <td>
+
+                            <div class="product-cell">
+
+                                <div class="table-product-icon">
+                                    SW
+                                </div>
+
+                                <div>
+
+                                    <div class="product-name">
+                                        Business Software Suite
+                                    </div>
+
+                                    <div class="product-code">
+                                        SKU-1004
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <span class="category">
+                                Software
+                            </span>
+                        </td>
+
+                        <td class="price">
+                            ₱12,500
+                        </td>
+
+                        <td>
+                            75
+                        </td>
+
+                        <td>
+
+                            <span class="stock-status stock-good">
+                                ● In Stock
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Sep 09, 2026
+                        </td>
+
+                        <td>
+
+                            <button class="action-btn">
+                                ✎
+                            </button>
+
+                            <button class="action-btn">
+                                ⋮
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr data-category="office"
+                        data-stock="out">
+
+                        <td>
+
+                            <div class="product-cell">
+
+                                <div class="table-product-icon">
+                                    PR
+                                </div>
+
+                                <div>
+
+                                    <div class="product-name">
+                                        Office Laser Printer
+                                    </div>
+
+                                    <div class="product-code">
+                                        SKU-1005
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <span class="category">
+                                Office Equipment
+                            </span>
+                        </td>
+
+                        <td class="price">
+                            ₱18,900
+                        </td>
+
+                        <td>
+                            0
+                        </td>
+
+                        <td>
+
+                            <span class="stock-status stock-out">
+                                ● Out of Stock
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Sep 08, 2026
+                        </td>
+
+                        <td>
+
+                            <button class="action-btn">
+                                ✎
+                            </button>
+
+                            <button class="action-btn">
+                                ⋮
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr data-category="electronics"
+                        data-stock="in">
+
+                        <td>
+
+                            <div class="product-cell">
+
+                                <div class="table-product-icon">
+                                    MN
+                                </div>
+
+                                <div>
+
+                                    <div class="product-name">
+                                        Professional Monitor
+                                    </div>
+
+                                    <div class="product-code">
+                                        SKU-1006
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <span class="category">
+                                Electronics
+                            </span>
+                        </td>
+
+                        <td class="price">
+                            ₱22,750
+                        </td>
+
+                        <td>
+                            32
+                        </td>
+
+                        <td>
+
+                            <span class="stock-status stock-good">
+                                ● In Stock
+                            </span>
+
+                        </td>
+
+                        <td>
+                            Sep 07, 2026
+                        </td>
+
+                        <td>
+
+                            <button class="action-btn">
+                                ✎
+                            </button>
+
+                            <button class="action-btn">
+                                ⋮
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
+
+<section class="section" id="categories">
+
+    <div class="section-header">
+
+        <div class="section-tag">
+            PRODUCT CATALOG
+        </div>
+
+        <h2 class="section-title">
+            Organized product categories
+        </h2>
+
+        <p class="section-subtitle">
+            Keep your catalog structured and easy to navigate
+            as your product inventory grows.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <div class="category-card">
+
+            <div class="category-number">
+                86
+            </div>
+
+            <h3>
+                Electronics
+            </h3>
+
+            <p>
+                Computers, monitors, devices and technology products.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-number"
+                 style="color:var(--green)">
+                64
+            </div>
+
+            <h3>
+                Accessories
+            </h3>
+
+            <p>
+                Keyboards, mice, cables and computer accessories.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-number"
+                 style="color:var(--purple)">
+                42
+            </div>
+
+            <h3>
+                Software
+            </h3>
+
+            <p>
+                Business applications and software licenses.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <div class="category-number"
+                 style="color:var(--orange)">
+                56
+            </div>
+
+            <h3>
+                Office Equipment
+            </h3>
+
+            <p>
+                Printers, office devices and business equipment.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WORKFLOW
+========================================================= -->
+
+<section class="section" id="workflow">
+
+    <div class="section-header">
+
+        <div class="section-tag">
+            BUSINESS WORKFLOW
+        </div>
+
+        <h2 class="section-title">
+            Simple product administration
+        </h2>
+
+        <p class="section-subtitle">
+            A straightforward workflow that makes product
+            management easier for administrators and staff.
+        </p>
+
+    </div>
+
+
+    <div class="workflow">
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                STEP 01
+            </div>
+
+            <h3>
+                Create
+            </h3>
+
+            <p>
+                Add new products with essential information such
+                as SKU, category, pricing, stock quantity and status.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                STEP 02
+            </div>
+
+            <h3>
+                Manage
+            </h3>
+
+            <p>
+                Search, filter, edit and organize products from
+                a centralized management dashboard.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                STEP 03
+            </div>
+
+            <h3>
+                Monitor
+            </h3>
+
+            <p>
+                Track inventory levels and identify low-stock
+                or unavailable products before they affect operations.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="cta-inner">
+
+        <div class="section-tag">
+            CUSTOM BUSINESS SOFTWARE
+        </div>
+
+        <h2>
+            Need a system built for your business?
+        </h2>
+
+        <p>
+            This Product Management System is a sample demonstration
+            of how I can design and develop practical business software
+            around specific workflows, requirements, and operational needs.
+        </p>
+
+        <a href="/contact.html"
+           class="btn btn-primary">
+
+            Let's Build Your System →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<script src="/components/js/product-management-system.js" defer></script>
+<script src="/components/js/go-back.js" defer></script>
+
+</body>
+</html>

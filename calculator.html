@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+
+<!-- =========================================================
+     BASIC DOCUMENT INFORMATION
+     ========================================================= -->
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<meta name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<meta name="author"
+      content="Israel Dayrit Abarquez">
+
+<meta name="description"
+      content="SmartCalc is an interactive calculator web application demonstrating responsive UI design, JavaScript application logic, input validation, keyboard support, and modern front-end development.">
+
+<meta name="keywords"
+      content="Smart Calculator, JavaScript calculator, calculator web application, interactive calculator, responsive web application, JavaScript project, HTML CSS JavaScript, web development portfolio">
+
+<meta name="theme-color"
+      content="#0F1319">
+
+<meta name="color-scheme"
+      content="dark">
+
+<!-- =========================================================
+     CANONICAL URL
+     IMPORTANT:
+     Replace this with the exact production URL if different.
+     ========================================================= -->
+
+<link rel="canonical"
+      href="https://www.abarquez.pages.dev/smart-calculator.html">
+
+
+<!-- =========================================================
+     TITLE
+     ========================================================= -->
+
+<title>
+    SmartCalc — Interactive Calculator Web App | I
+</title>
+
+
+<!-- =========================================================
+     FAVICONS
+     ========================================================= -->
+
+<link rel="icon"
+      href="/images/favicon.ico"
+      sizes="any">
+
+<link rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png?v=2">
+
+<link rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="/images/favicon-48x48.png?v=2">
+
+<link rel="apple-touch-icon"
+      href="/apple-touch-icon.png?v=2">
+
+<link rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon-180x180.png?v=2">
+
+<link rel="apple-touch-icon"
+      sizes="167x167"
+      href="/apple-touch-icon-167x167.png?v=2">
+
+<link rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-touch-icon-152x152.png?v=2">
+
+
+<!-- =========================================================
+     OPEN GRAPH
+     ========================================================= -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:site_name"
+      content="I">
+
+<meta property="og:title"
+      content="SmartCalc — Interactive Calculator Web App">
+
+<meta property="og:description"
+      content="Explore SmartCalc, a responsive JavaScript calculator demonstrating interactive UI design, application logic, validation, keyboard support, and modern front-end development.">
+
+<meta property="og:url"
+      content="https://www.abarquez.pages.dev/smart-calculator.html">
+
+<meta property="og:image"
+      content="https://www.abarquez.pages.dev/images/smart-calculator-og-1200x630.png">
+
+<meta property="og:image:width"
+      content="1200">
+
+<meta property="og:image:height"
+      content="630">
+
+<meta property="og:image:alt"
+      content="SmartCalc interactive calculator web application">
+
+<meta property="og:locale"
+      content="en_US">
+
+
+<!-- =========================================================
+     TWITTER / X
+     ========================================================= -->
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="SmartCalc — Interactive Calculator Web App">
+
+<meta name="twitter:description"
+      content="A responsive JavaScript calculator demonstrating modern web application development, validation, keyboard support, and interactive UI design.">
+
+<meta name="twitter:image"
+      content="https://www.abarquez.pages.dev/images/smart-calculator-og-1200x630.png">
+
+<meta name="twitter:image:alt"
+      content="SmartCalc interactive calculator web application">
+
+
+<!-- =========================================================
+     GOOGLE FONTS
+     ========================================================= -->
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap">
+
+
+<!-- =========================================================
+     STYLESHEETS
+     ========================================================= -->
+
+<link rel="stylesheet"
+      href="/components/css/calculator.css">
+
+<link rel="stylesheet"
+      href="/components/css/animated-nav-logo.css">
+
+<link rel="stylesheet"
+      href="/components/css/go-back.css">
+
+
+<!-- =========================================================
+     PRELOAD / PERFORMANCE
+     ========================================================= -->
+
+<link rel="preload"
+      href="/components/css/calculator.css"
+      as="style">
+
+
+<!-- =========================================================
+     STRUCTURED DATA
+     ========================================================= -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.abarquez.pages.dev/#website",
+      "url": "https://www.abarquez.pages.dev/",
+      "name": "I",
+      "description": "Digital technology, software engineering, AI solutions, and cloud infrastructure services.",
+      "inLanguage": "en-US"
+    },
+
+    {
+      "@type": "Organization",
+      "@id": "https://www.abarquez.pages.dev/#organization",
+      "name": "I",
+      "url": "https://www.abarquez.pages.dev/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.abarquez.pages.dev/images/favicon-48x48.png"
+      }
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": "https://www.abarquez.pages.dev/smart-calculator.html#webpage",
+      "url": "https://www.abarquez.pages.dev/smart-calculator.html",
+      "name": "SmartCalc — Interactive Calculator Web App",
+      "description": "SmartCalc is an interactive calculator web application demonstrating responsive UI design, JavaScript application logic, input validation, keyboard support, and modern front-end development.",
+      "isPartOf": {
+        "@id": "https://www.abarquez.pages.dev/#website"
+      },
+      "about": {
+        "@id": "https://www.abarquez.pages.dev/smart-calculator.html#software"
+      },
+      "breadcrumb": {
+        "@id": "https://www.abarquez.pages.dev/smart-calculator.html#breadcrumb"
+      },
+      "inLanguage": "en-US"
+    },
+
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.abarquez.pages.dev/smart-calculator.html#software",
+      "name": "SmartCalc",
+      "description": "An interactive browser-based calculator demonstrating JavaScript logic, responsive UI design, input validation, and keyboard interaction.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser",
+      "browserRequirements": "Requires JavaScript enabled",
+      "softwareVersion": "1.0",
+      "author": {
+        "@type": "Person",
+        "name": "Israel Dayrit Abarquez"
+      },
+      "publisher": {
+        "@id": "https://www.abarquez.pages.dev/#organization"
+      },
+      "url": "https://www.abarquez.pages.dev/smart-calculator.html"
+    }
+
+   
+
+  ]
+}
+</script>
+
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav aria-label="Primary navigation">
+
+    <a href="/"
+       class="nav-logo"
+       aria-label="I home">
+
+        <div class="info-logo"
+             aria-hidden="true">
+
+            <div class="info-core">
+                <span>i</span>
+            </div>
+
+            <div class="info-orbit orbit-1">
+                <b></b>
+            </div>
+
+            <div class="info-orbit orbit-2">
+                <b></b>
+            </div>
+
+            <div class="info-orbit orbit-3">
+                <b></b>
+            </div>
+
+            <i class="info-particle p1"></i>
+            <i class="info-particle p2"></i>
+            <i class="info-particle p3"></i>
+            <i class="info-particle p4"></i>
+            <i class="info-particle p5"></i>
+
+        </div>
+
+        <span>
+            Smart Calculator Demo
+        </span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="/index.html">
+            Home
+        </a>
+
+        <a href="#demo">
+            Live Demo
+        </a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#technology">
+            Technology
+        </a>
+
+        <a href="#project">
+            Project
+        </a>
+
+    </div>
+
+
+    <a href="/contact.html"
+       class="nav-button">
+        Start a Project
+    </a>
+
+</nav>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+
+<main id="main-content">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <header class="hero">
+
+        <div>
+
+            <button type="button"
+                    onclick="goBack()"
+                    class="back-to-portfolio-demo"
+                    aria-label="Go back to the previous portfolio page">
+
+                    ⏪ Back 
+
+            </button>
+
+
+            <div class="hero-badge">
+
+                <span class="badge-dot"
+                      aria-hidden="true"></span>
+
+                Portfolio Project • Web Application
+
+            </div>
+
+
+            <h1>
+                Smart
+                <br>
+                <span>Calculator.</span>
+            </h1>
+
+
+            <p class="hero-sub">
+                A modern, responsive calculator web application
+                demonstrating practical software development,
+                interactive user interfaces, JavaScript logic,
+                input validation, keyboard support, and
+                responsive user experience design.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#demo"
+                   class="btn btn-primary">
+                    Try the Calculator
+                </a>
+
+                <a href="#project"
+                   class="btn btn-outline">
+                    View Project Details
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CALCULATOR
+             ================================================= -->
+
+        <div class="calculator-wrap"
+             id="demo"
+             aria-label="SmartCalc interactive calculator">
+
+            <div class="calculator-glow"
+                 aria-hidden="true"></div>
+
+            <div class="calculator">
+
+                <div class="calc-top">
+
+                    <div class="calc-title">
+                        SMARTCALC / v1.0
+                    </div>
+
+                    <div class="calc-status"
+                         aria-live="polite">
+
+                        <span aria-hidden="true"></span>
+
+                        Ready
+
+                    </div>
+
+                </div>
+
+
+                <div class="display"
+                     aria-live="polite"
+                     aria-atomic="true">
+
+                    <div class="previous"
+                         id="previous"
+                         aria-label="Previous calculation">
+                    </div>
+
+                    <div class="current"
+                         id="current"
+                         aria-label="Current calculator value">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="calc-grid"
+                     aria-label="Calculator controls">
+
+
+                    <button type="button"
+                            class="calc-btn action"
+                            onclick="clearCalculator()"
+                            aria-label="Clear calculator">
+
+                        AC
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn action"
+                            onclick="deleteNumber()"
+                            aria-label="Delete last number">
+
+                        DEL
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn operator"
+                            onclick="chooseOperator('%')"
+                            aria-label="Percentage">
+
+                        %
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn operator"
+                            onclick="chooseOperator('/')"
+                            aria-label="Divide">
+
+                        ÷
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('7')">
+                        7
+                    </button>
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('8')">
+                        8
+                    </button>
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('9')">
+                        9
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn operator"
+                            onclick="chooseOperator('*')"
+                            aria-label="Multiply">
+
+                        ×
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('4')">
+                        4
+                    </button>
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('5')">
+                        5
+                    </button>
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('6')">
+                        6
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn operator"
+                            onclick="chooseOperator('-')"
+                            aria-label="Subtract">
+
+                        −
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('1')">
+                        1
+                    </button>
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('2')">
+                        2
+                    </button>
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('3')">
+                        3
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn operator"
+                            onclick="chooseOperator('+')"
+                            aria-label="Add">
+
+                        +
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn zero"
+                            onclick="appendNumber('0')">
+
+                        0
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn"
+                            onclick="appendNumber('.')"
+                            aria-label="Decimal point">
+
+                        .
+
+                    </button>
+
+
+                    <button type="button"
+                            class="calc-btn equal"
+                            onclick="calculate()"
+                            aria-label="Calculate result">
+
+                        =
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         FEATURES
+         ===================================================== -->
+
+    <section id="features"
+             aria-labelledby="features-title">
+
+        <div class="section-tag">
+            What this demonstrates
+        </div>
+
+        <h2 id="features-title"
+            class="section-title">
+
+            More than a calculator.
+
+        </h2>
+
+        <p class="section-sub">
+
+            This portfolio project demonstrates practical
+            web application development by combining clean
+            interfaces, functional JavaScript logic,
+            validation, accessibility considerations,
+            and responsive design.
+
+        </p>
+
+
+        <div class="features">
+
+            <article class="feature-card">
+
+                <div class="feature-icon"
+                     aria-hidden="true">
+                    ⚡
+                </div>
+
+                <h3>
+                    Interactive UI
+                </h3>
+
+                <p>
+                    Responsive controls, visual feedback,
+                    animations, and an interface designed
+                    for a smooth user experience.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon"
+                     aria-hidden="true">
+                    ◇
+                </div>
+
+                <h3>
+                    Application Logic
+                </h3>
+
+                <p>
+                    JavaScript-powered arithmetic operations,
+                    operator handling, decimal validation,
+                    and error handling.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon"
+                     aria-hidden="true">
+                    ↗
+                </div>
+
+                <h3>
+                    Responsive Design
+                </h3>
+
+                <p>
+                    The application adapts to desktop,
+                    tablet, and mobile screen sizes while
+                    maintaining usability and accessibility.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TECHNOLOGY
+         ===================================================== -->
+
+    <section class="tech-section"
+             id="technology"
+             aria-labelledby="technology-title">
+
+        <div class="section-tag">
+            Technology
+        </div>
+
+        <h2 id="technology-title"
+            class="section-title">
+
+            Built with modern web technologies.
+
+        </h2>
+
+        <p class="section-sub">
+
+            A lightweight front-end architecture keeps the
+            application fast, maintainable, and easy to extend.
+
+        </p>
+
+
+        <div class="tech-grid"
+             aria-label="Technologies used">
+
+            <span class="tech">HTML5</span>
+            <span class="tech">CSS3</span>
+            <span class="tech">JavaScript</span>
+            <span class="tech">Responsive Design</span>
+            <span class="tech">DOM Manipulation</span>
+            <span class="tech">Event Handling</span>
+            <span class="tech">Input Validation</span>
+            <span class="tech">UI/UX Design</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECT DETAILS
+         ===================================================== -->
+
+    <section id="project"
+             aria-labelledby="project-title">
+
+        <div class="section-tag">
+            Project Breakdown
+        </div>
+
+        <h2 id="project-title"
+            class="section-title">
+
+            Designed like a real application.
+
+        </h2>
+
+
+        <div class="project-layout">
+
+            <div class="project-list">
+
+
+                <article class="project-item">
+
+                    <div class="project-check"
+                         aria-hidden="true">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Clean Architecture
+                        </strong>
+
+                        <span>
+                            Separate interface,
+                            application logic,
+                            and reusable functions.
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-item">
+
+                    <div class="project-check"
+                         aria-hidden="true">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Input Validation
+                        </strong>
+
+                        <span>
+                            Prevents invalid decimal
+                            input and handles unexpected
+                            calculations.
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-item">
+
+                    <div class="project-check"
+                         aria-hidden="true">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Keyboard Support
+                        </strong>
+
+                        <span>
+                            Users can operate the calculator
+                            using their keyboard as well as
+                            the on-screen interface.
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-item">
+
+                    <div class="project-check"
+                         aria-hidden="true">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Mobile Ready
+                        </strong>
+
+                        <span>
+                            Responsive layout optimized for
+                            smaller displays and touch
+                            interaction.
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-item">
+
+                    <div class="project-check"
+                         aria-hidden="true">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Expandable Design
+                        </strong>
+
+                        <span>
+                            The architecture can be extended
+                            with history, scientific functions,
+                            themes, or database integration.
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 CODE PREVIEW
+                 ================================================= -->
+
+            <div class="code-card"
+                 aria-label="Example JavaScript code">
+
+                <div class="code-top"
+                     aria-hidden="true">
+
+                    <span class="code-dot"
+                          style="background:#E85A5A"></span>
+
+                    <span class="code-dot"
+                          style="background:#F0A030"></span>
+
+                    <span class="code-dot"
+                          style="background:#3DCC8E"></span>
+
+                </div>
+
+
+                <div class="code">
+
+
+<span class="blue">function</span>
+calculate() {
+
+<span class="blue">const</span>
+result = operate(
+
+
+currentValue,
+
+operator,
+
+nextValue
+
+
+);
+
+displayResult(result);
+
+saveHistory(result);
+
+}
+
+<span class="green">// Ready for extension</span>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CALL TO ACTION
+         ===================================================== -->
+
+    <section class="cta"
+             id="contact"
+             aria-labelledby="cta-title">
+
+        <div class="cta-box">
+
+            <div class="section-tag">
+                Have an idea?
+            </div>
+
+            <h2 id="cta-title">
+                Let's build something useful.
+            </h2>
+
+            <p>
+                From small business tools to custom web
+                applications, I can help
+                develop technology solutions around
+                specific project requirements.
+            </p>
+
+            <a href="/contact.html"
+               class="btn btn-primary">
+
+                Let's Work Together →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<div id="shared-footer"></div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="/components/js/go-back.js"
+        defer></script>
+
+<script src="/components/js/calculator.js"
+        defer></script>
+
+<script src="/components/js/footer.js"
+        defer></script>
+
+
+</body>
+</html>

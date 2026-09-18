@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Purchase Management System | Israel Dayrit Abarquez</title>
+
+<meta name="description"
+      content="Professional Purchase Management System interface for purchase orders, suppliers, receiving, and procurement tracking.">
+
+
+      
+<!-- Classic images/favicon -->
+<link rel="icon" href="/images/favicon.ico" sizes="any">
+
+<!-- PNG images/favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=2">
+<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png?v=2">
+
+<!-- Apple -->
+<!-- Apple Touch Icons -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=2">
+<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png?v=2">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=2">
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet">
+
+      
+<link rel="stylesheet" href="/components/css/purchase-management.css">
+<link rel="stylesheet" href="/components/css/animated-nav-logo.css">
+    <link rel="stylesheet" href="/components/css/go-back.css">
+
+</head>
+
+<body>
+
+    <!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <div class="nav-container">
+
+        <a href="/" class="logo">
+
+              <div class="info-logo">
+                <div class="info-core">
+                    <span>i</span>
+                </div>
+                <div class="info-orbit orbit-1"><b></b></div>
+                <div class="info-orbit orbit-2"><b></b></div>
+                <div class="info-orbit orbit-3"><b></b></div>
+                <i class="info-particle p1"></i>
+                <i class="info-particle p2"></i>
+                <i class="info-particle p3"></i>
+                <i class="info-particle p4"></i>
+                <i class="info-particle p5"></i>
+            </div>
+
+
+            <span>
+                Purchase Management Demo
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+            <a href="#purchase-orders">Purchase Orders</a>
+            <a href="#suppliers">Suppliers</a>
+            <a href="#activity">Activity</a>
+       
+
+        </div>
+
+
+        <div class="nav-right">
+
+            <div class="live">
+                <span class="live-dot"></span>
+                System Online
+            </div>
+
+        </div>
+
+
+        <!-- HAMBURGER -->
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="container">
+
+<!-- HEADER -->
+
+<section class="page-header">
+
+    <div>
+
+                    <button type="button"
+                                onclick="goBack()"
+                                class="back-to-portfolio-demo"
+                                aria-label="Go back to previous page">
+                            ⏪ Back 
+                        </button>
+
+                    <br>
+
+
+        <div class="eyebrow">
+            Procurement Management
+        </div>
+
+        <h1>
+            Purchase Management
+        </h1>
+
+        <p>
+            Centralize purchase orders, supplier activity, receiving,
+            procurement costs, and purchasing operations in one
+            streamlined business management system.
+        </p>
+
+    </div>
+
+    <button class="primary-btn" onclick="openModal()">
+        + Create Purchase Order
+    </button>
+
+</section>
+
+
+<!-- =========================================================
+     KPI
+========================================================= -->
+
+<section class="kpi-grid" id="dashboard">
+
+    <div class="kpi">
+
+        <div class="kpi-icon">₱</div>
+
+        <div class="kpi-label">
+            Purchase Value
+        </div>
+
+        <div class="kpi-value">
+            ₱428,650
+        </div>
+
+        <div class="kpi-change">
+            ↑ 12.4% this month
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <div class="kpi-icon">
+            PO
+        </div>
+
+        <div class="kpi-label">
+            Purchase Orders
+        </div>
+
+        <div class="kpi-value">
+            86
+        </div>
+
+        <div class="kpi-change">
+            ↑ 8 new orders
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <div class="kpi-icon"
+             style="color:var(--orange);
+                    background:rgba(240,160,48,.1)">
+            !
+        </div>
+
+        <div class="kpi-label">
+            Pending Orders
+        </div>
+
+        <div class="kpi-value">
+            14
+        </div>
+
+        <div class="kpi-change"
+             style="color:var(--orange)">
+            Requires attention
+        </div>
+
+    </div>
+
+
+    <div class="kpi">
+
+        <div class="kpi-icon"
+             style="color:var(--green);
+                    background:rgba(61,204,142,.1)">
+            ✓
+        </div>
+
+        <div class="kpi-label">
+            Received Orders
+        </div>
+
+        <div class="kpi-value">
+            67
+        </div>
+
+        <div class="kpi-change">
+            91% completion rate
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PURCHASE ORDERS + SUPPLIERS
+========================================================= -->
+
+<section class="main-grid">
+
+<div class="card" id="purchase-orders">
+
+    <div class="card-header">
+
+        <div>
+
+            <div class="card-title">
+                Purchase Orders
+            </div>
+
+            <div class="card-subtitle">
+                Track procurement activity and order status
+            </div>
+
+        </div>
+
+        <span class="status processing">
+            Live Data
+        </span>
+
+    </div>
+
+
+    <!-- TOOLBAR -->
+
+    <div class="toolbar">
+
+        <input
+            type="text"
+            class="search"
+            id="searchInput"
+            placeholder="Search purchase order, supplier..."
+            onkeyup="filterOrders()"
+        >
+
+        <select class="filter" id="statusFilter" onchange="filterOrders()">
+
+            <option value="all">
+                All Status
+            </option>
+
+            <option value="pending">
+                Pending
+            </option>
+
+            <option value="processing">
+                Processing
+            </option>
+
+            <option value="received">
+                Received
+            </option>
+
+            <option value="cancelled">
+                Cancelled
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>PO Number</th>
+
+                    <th>Supplier</th>
+
+                    <th>Order Date</th>
+
+                    <th>Expected</th>
+
+                    <th>Total</th>
+
+                    <th>Status</th>
+
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="orderTable">
+
+
+                <tr data-status="received">
+
+                    <td class="po-number">
+                        PO-2026-0086
+                    </td>
+
+                    <td class="supplier">
+                        TechSource Solutions
+                    </td>
+
+                    <td>
+                        Sep 10, 2026
+                    </td>
+
+                    <td>
+                        Sep 12, 2026
+                    </td>
+
+                    <td class="amount">
+                        ₱48,500
+                    </td>
+
+                    <td>
+                        <span class="status received">
+                            Received
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="action">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="processing">
+
+                    <td class="po-number">
+                        PO-2026-0085
+                    </td>
+
+                    <td class="supplier">
+                        Prime Office Supply
+                    </td>
+
+                    <td>
+                        Sep 09, 2026
+                    </td>
+
+                    <td>
+                        Sep 14, 2026
+                    </td>
+
+                    <td class="amount">
+                        ₱22,750
+                    </td>
+
+                    <td>
+                        <span class="status processing">
+                            Processing
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="action">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="pending">
+
+                    <td class="po-number">
+                        PO-2026-0084
+                    </td>
+
+                    <td class="supplier">
+                        Global Electronics
+                    </td>
+
+                    <td>
+                        Sep 08, 2026
+                    </td>
+
+                    <td>
+                        Sep 16, 2026
+                    </td>
+
+                    <td class="amount">
+                        ₱76,900
+                    </td>
+
+                    <td>
+                        <span class="status pending">
+                            Pending
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="action">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="received">
+
+                    <td class="po-number">
+                        PO-2026-0083
+                    </td>
+
+                    <td class="supplier">
+                        Manila Industrial Supply
+                    </td>
+
+                    <td>
+                        Sep 07, 2026
+                    </td>
+
+                    <td>
+                        Sep 10, 2026
+                    </td>
+
+                    <td class="amount">
+                        ₱91,250
+                    </td>
+
+                    <td>
+                        <span class="status received">
+                            Received
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="action">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="pending">
+
+                    <td class="po-number">
+                        PO-2026-0082
+                    </td>
+
+                    <td class="supplier">
+                        Digital World Trading
+                    </td>
+
+                    <td>
+                        Sep 06, 2026
+                    </td>
+
+                    <td>
+                        Sep 15, 2026
+                    </td>
+
+                    <td class="amount">
+                        ₱34,800
+                    </td>
+
+                    <td>
+                        <span class="status pending">
+                            Pending
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="action">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+                <tr data-status="cancelled">
+
+                    <td class="po-number">
+                        PO-2026-0081
+                    </td>
+
+                    <td class="supplier">
+                        Metro Business Center
+                    </td>
+
+                    <td>
+                        Sep 05, 2026
+                    </td>
+
+                    <td>
+                        —
+                    </td>
+
+                    <td class="amount">
+                        ₱18,500
+                    </td>
+
+                    <td>
+                        <span class="status cancelled">
+                            Cancelled
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="action">
+                            ⋮
+                        </button>
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SUPPLIERS
+========================================================= -->
+
+<div class="card" id="suppliers">
+
+    <div class="card-header">
+
+        <div>
+
+            <div class="card-title">
+                Top Suppliers
+            </div>
+
+            <div class="card-subtitle">
+                Highest purchasing activity
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="side-body">
+
+
+        <div class="supplier-row">
+
+            <div class="supplier-avatar">
+                TS
+            </div>
+
+            <div class="supplier-info">
+
+                <div class="supplier-name">
+                    TechSource Solutions
+                </div>
+
+                <div class="supplier-orders">
+                    18 purchase orders
+                </div>
+
+            </div>
+
+            <div class="supplier-total">
+                ₱124K
+            </div>
+
+        </div>
+
+
+        <div class="supplier-row">
+
+            <div class="supplier-avatar">
+                GE
+            </div>
+
+            <div class="supplier-info">
+
+                <div class="supplier-name">
+                    Global Electronics
+                </div>
+
+                <div class="supplier-orders">
+                    14 purchase orders
+                </div>
+
+            </div>
+
+            <div class="supplier-total">
+                ₱98K
+            </div>
+
+        </div>
+
+
+        <div class="supplier-row">
+
+            <div class="supplier-avatar">
+                MI
+            </div>
+
+            <div class="supplier-info">
+
+                <div class="supplier-name">
+                    Manila Industrial
+                </div>
+
+                <div class="supplier-orders">
+                    11 purchase orders
+                </div>
+
+            </div>
+
+            <div class="supplier-total">
+                ₱76K
+            </div>
+
+        </div>
+
+
+        <div class="supplier-row">
+
+            <div class="supplier-avatar">
+                PO
+            </div>
+
+            <div class="supplier-info">
+
+                <div class="supplier-name">
+                    Prime Office Supply
+                </div>
+
+                <div class="supplier-orders">
+                    9 purchase orders
+                </div>
+
+            </div>
+
+            <div class="supplier-total">
+                ₱52K
+            </div>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="summary">
+
+            <div class="summary-row">
+                <span>Approved purchases</span>
+                <span>₱312,450</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Pending purchases</span>
+                <span>₱87,700</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Cancelled</span>
+                <span>₱28,500</span>
+            </div>
+
+            <div class="summary-row total">
+                <span>Total purchase value</span>
+                <span>₱428,650</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     BOTTOM GRID
+========================================================= -->
+
+<section class="bottom-grid" id="activity">
+
+
+<!-- PROCUREMENT PERFORMANCE -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <div>
+
+            <div class="card-title">
+                Procurement Performance
+            </div>
+
+            <div class="card-subtitle">
+                Current purchasing workflow
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="side-body">
+
+
+        <div class="progress-item">
+
+            <div class="progress-head">
+
+                <span>
+                    Orders received
+                </span>
+
+                <span>
+                    91%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width:91%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-item">
+
+            <div class="progress-head">
+
+                <span>
+                    Supplier fulfillment
+                </span>
+
+                <span>
+                    87%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width:87%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-item">
+
+            <div class="progress-head">
+
+                <span>
+                    On-time delivery
+                </span>
+
+                <span>
+                    94%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width:94%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-item">
+
+            <div class="progress-head">
+
+                <span>
+                    Purchase approval
+                </span>
+
+                <span>
+                    96%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    style="width:96%">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- RECENT ACTIVITY -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <div>
+
+            <div class="card-title">
+                Recent Activity
+            </div>
+
+            <div class="card-subtitle">
+                Latest procurement events
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="activity">
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon">
+                ✓
+            </div>
+
+            <div class="activity-text">
+
+                <strong>
+                    PO-2026-0086
+                </strong>
+                was marked as received.
+
+                <span class="activity-time">
+                    18 minutes ago
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon"
+                 style="background:rgba(74,158,232,.1);
+                        color:var(--blue)">
+                +
+            </div>
+
+            <div class="activity-text">
+
+                New purchase order
+                <strong>
+                    PO-2026-0085
+                </strong>
+                created.
+
+                <span class="activity-time">
+                    1 hour ago
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon"
+                 style="background:rgba(240,160,48,.1);
+                        color:var(--orange)">
+                !
+            </div>
+
+            <div class="activity-text">
+
+                Purchase order
+                <strong>
+                    PO-2026-0084
+                </strong>
+                requires approval.
+
+                <span class="activity-time">
+                    2 hours ago
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon">
+                $
+            </div>
+
+            <div class="activity-text">
+
+                Supplier invoice
+                <strong>
+                    INV-54821
+                </strong>
+                matched successfully.
+
+                <span class="activity-time">
+                    3 hours ago
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================================================
+     CREATE PURCHASE ORDER MODAL
+========================================================= -->
+
+<div class="modal" id="purchaseModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="card-title">
+                    Create Purchase Order
+                </div>
+
+                <div class="card-subtitle">
+                    Add a new procurement transaction
+                </div>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="form">
+
+            <div class="field">
+
+                <label>
+                    Supplier
+                </label>
+
+                <select>
+
+                    <option>
+                        TechSource Solutions
+                    </option>
+
+                    <option>
+                        Global Electronics
+                    </option>
+
+                    <option>
+                        Prime Office Supply
+                    </option>
+
+                    <option>
+                        Manila Industrial Supply
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Order Date
+                </label>
+
+                <input
+                    type="date"
+                    value="2026-09-12">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Expected Delivery
+                </label>
+
+                <input
+                    type="date"
+                    value="2026-09-18">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Payment Terms
+                </label>
+
+                <select>
+
+                    <option>
+                        Cash
+                    </option>
+
+                    <option>
+                        15 Days
+                    </option>
+
+                    <option selected>
+                        30 Days
+                    </option>
+
+                    <option>
+                        60 Days
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label>
+                    Purchase Description
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Enter products or purchase details">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Quantity
+                </label>
+
+                <input
+                    type="number"
+                    value="1"
+                    min="1">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Estimated Total
+                </label>
+
+                <input
+                    type="number"
+                    placeholder="₱0.00">
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                class="secondary-btn"
+                onclick="closeModal()">
+
+                Cancel
+
+            </button>
+
+            <button
+                class="primary-btn"
+                onclick="createPurchase()">
+
+                Create Purchase Order
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="/components/js/go-back.js" defer></script>
+<script src="/components/js/purchase-management-system.js" defer></script>
+
+
+</body>
+</html>
